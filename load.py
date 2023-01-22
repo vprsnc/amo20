@@ -46,10 +46,10 @@ class Load:
     def in_batches(self, batch_size=10000):
         for i in range(0, self.files_num, batch_size):
             batch_files = self.file_list[i:i+batch_size]
-            print(f for f in batch_files)
             df_list = [self.read(f) for f in batch_files]
             df = pd.concat(df_list).astype('str')
             self.load(df)
+        return True
 
     def cleanup(self):
         for f in self.file_list:
@@ -101,7 +101,6 @@ class LoadWithSchemaUpdate(Load):
     def in_batches(self, batch_size=10000):
         for i in range(0, self.files_num, batch_size):
             batch_files = self.file_list[i:i+batch_size]
-            print(f for f in batch_files)
             df_list = [self.read(f) for f in batch_files]
             df = pd.concat(df_list).astype('str')
             try:
@@ -111,4 +110,4 @@ class LoadWithSchemaUpdate(Load):
                 logger.info(e)
                 self.update_schema(self.table_ref, df)
                 self.load(df)
-            return True
+        return True

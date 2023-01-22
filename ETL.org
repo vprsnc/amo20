@@ -458,7 +458,10 @@ class Tleads(Base):
                 )
                 field_value = ",".join(str(v["value"]) for v in cf["values"])
                 content[field_name] = field_value
-                content.pop("custom_fields_values")
+                try:
+                    content.pop("custom_fields_values")
+                except KeyError:
+                    pass
             return content
         return content
 
@@ -606,7 +609,7 @@ First, we create base load class for all the entities:
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle load.py
 import os
-from datetime import date
+from datetime import datetime
 import pandas as pd
 from google.cloud import bigquery as bq
 from google.api_core.exceptions import BadRequest
@@ -619,7 +622,7 @@ class Load:
             './tokens/oddjob-db-2007-759fe782b144.json'
         self.client = bq.Client()
         self.path = f"temp_data/{amo}/{entity}_transformed/"
-        self.date = str(date.today())
+        self.date = str(datetime.now())
         self.files_num = sum(1 for file in os.listdir(self.path))
         self.file_list = [self.path + f for f in os.listdir(self.path)]
 
@@ -653,10 +656,10 @@ class Load:
     def in_batches(self, batch_size=10000):
         for i in range(0, self.files_num, batch_size):
             batch_files = self.file_list[i:i+batch_size]
-            print(f for f in batch_files)
             df_list = [self.read(f) for f in batch_files]
             df = pd.concat(df_list).astype('str')
             self.load(df)
+        return True
 
     def cleanup(self):
         for f in self.file_list:
@@ -715,7 +718,6 @@ class LoadWithSchemaUpdate(Load):
     def in_batches(self, batch_size=10000):
         for i in range(0, self.files_num, batch_size):
             batch_files = self.file_list[i:i+batch_size]
-            print(f for f in batch_files)
             df_list = [self.read(f) for f in batch_files]
             df = pd.concat(df_list).astype('str')
             try:
@@ -725,7 +727,7 @@ class LoadWithSchemaUpdate(Load):
                 logger.info(e)
                 self.update_schema(self.table_ref, df)
                 self.load(df)
-            return True
+        return True
 
 
 #+end_src
@@ -735,7 +737,7 @@ Finally we have everything ready, so we can write our ETL's script which will co
 ** Leads ETL
 *** Yastaff
 
-#+begin_src jupyter-python :session localhost :kernel python3 :tangle yastaff_etl_leads.py
+#+begin_src jupyter-python :session localhost :kernel amo20 :tangle yastaff_etl_leads.py
 import json
 from extract import Extract
 from amo.entities import Leads
@@ -746,7 +748,7 @@ from load import LoadWithSchemaUpdate
 AMO = 'yastaff'
 ENTITY = Tleads
 
-method = Leads('yastaff').created_at(from_="2022-01-01")
+method = Leads('yastaff').created_at(from_="2022-12-01")
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)
@@ -754,7 +756,7 @@ transform = Transform(AMO, ENTITY)
 load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
 
 if __name__ == "__main__":
-    # extract._all()
+    extract._all()
 
     if transform._all():
         transform.cleanup()
