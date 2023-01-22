@@ -9,18 +9,16 @@ AMO = 'yastaff'
 ENTITY = Tcalls
 
 method = Calls('yastaff')#.created_at(from_="2022-12-15")
-extract = Extract(amo20, method)
-
-transform = Transform(AMO, ENTITY)
-
-load = Load(AMO, ENTITY.truename)
 
 if __name__ == "__main__":
+    extract = Extract(amo20, method)
     extract._all()
 
+    transform = TransformPipelines(AMO, ENTITY)
     if transform._all():
         transform.cleanup()
 
+    load = Load(AMO, ENTITY.truename)
     load.backup()
     if load.in_batches():
         load.cleanup()
