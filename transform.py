@@ -80,6 +80,7 @@ class Tevents(Base):
     truename = "events"
 
     def __init__(self, dict_):
+        self.id_ = dict_["id"]
         self.type_ = dict_["type"]
         self.entity_id = dict_["entity_id"]
         self.entity_type = dict_["entity_type"]
@@ -92,6 +93,13 @@ class Tstatuses(Tevents):
     truename = "statuses"
 
     def __init__(self, dict_):
+        self.id_ = dict_["id"]
+        self.type_ = dict_["type"]
+        self.entity_id = dict_["entity_id"]
+        self.entity_type = dict_["entity_type"]
+        self.created_by = dict_["created_by"]
+        self.created_at = dict_["created_at"]
+        self.account_id = dict_["account_id"]
         self.value_after_status_id = dict_["value_after"][0]["lead_status"]["id"]
         self.value_after_pipeline_id = dict_["value_after"][0]["lead_status"]["pipeline_id"]
         self.value_before_status_id = dict_["value_before"][0]["lead_status"]["id"]

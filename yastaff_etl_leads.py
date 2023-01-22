@@ -8,7 +8,7 @@ from load import LoadWithSchemaUpdate
 AMO = 'yastaff'
 ENTITY = Tleads
 
-method = Leads('yastaff').created_at(from_="2022-01-01")
+method = Leads('yastaff').created_at(from_="2022-12-01") #TODO
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)
@@ -16,7 +16,7 @@ transform = Transform(AMO, ENTITY)
 load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
 
 if __name__ == "__main__":
-    # extract._all()
+    extract._all()
 
     if transform._all():
         transform.cleanup()
