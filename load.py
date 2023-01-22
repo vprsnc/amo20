@@ -1,5 +1,5 @@
 import os
-from datetime import date
+from datetime import datetime
 import pandas as pd
 from google.cloud import bigquery as bq
 from google.api_core.exceptions import BadRequest
@@ -12,7 +12,9 @@ class Load:
             './tokens/oddjob-db-2007-759fe782b144.json'
         self.client = bq.Client()
         self.path = f"temp_data/{amo}/{entity}_transformed/"
-        self.date = str(date.today())
+        self.date = str(datetime.now()).replace(" ", "-")\
+                                       .replace(":", "-")\
+                                       .split(".")[0]
         self.files_num = sum(1 for file in os.listdir(self.path))
         self.file_list = [self.path + f for f in os.listdir(self.path)]
 
@@ -61,7 +63,9 @@ class LoadWithSchemaUpdate(Load):
             './tokens/oddjob-db-2007-759fe782b144.json'
         self.client = bq.Client()
         self.path = f"temp_data/{amo}/{entity}_transformed/"
-        self.date = str(date.today())
+        self.date = str(datetime.now()).replace(" ", "-")\
+                                       .replace(":", "-")\
+                                       .split(".")[0]
         self.files_num = sum(1 for file in os.listdir(self.path))
         self.file_list = [self.path + f for f in os.listdir(self.path)]
 
@@ -90,7 +94,7 @@ class LoadWithSchemaUpdate(Load):
         table = self.client.get_table(self.table_ref)
 
         old_schema = list(table.schema)
-        new_schema = get_schema_from_dataframe(df, old_schema)
+        new_schema = self.get_schema_from_dataframe(df, old_schema)
 
         combined_schema = old_schema + new_schema
 
@@ -108,6 +112,6 @@ class LoadWithSchemaUpdate(Load):
 
             except BadRequest as e:
                 logger.info(e)
-                self.update_schema(self.table_ref, df)
+                self.update_schema(df)
                 self.load(df)
         return True

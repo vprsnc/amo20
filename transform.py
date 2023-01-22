@@ -69,7 +69,10 @@ class Tleads(Base):
                 )
                 field_value = ",".join(str(v["value"]) for v in cf["values"])
                 content[field_name] = field_value
-                content.pop("custom_fields_values")
+                try:
+                    content.pop("custom_fields_values")
+                except KeyError:
+                    pass
             return content
         return content
 
