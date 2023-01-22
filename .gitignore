@@ -9,6 +9,7 @@ build
 htmlcov
 __pycache__
 
+venv/
 nixenv/
 temp_data/
 tokens/
