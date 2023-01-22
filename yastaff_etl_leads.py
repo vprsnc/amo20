@@ -16,7 +16,7 @@ transform = Transform(AMO, ENTITY)
 load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
 
 if __name__ == "__main__":
-    extract._all()
+    # extract._all()
 
     if transform._all():
         transform.cleanup()

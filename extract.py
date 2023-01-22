@@ -2,6 +2,7 @@ import requests
 import json
 from requests.adapters import HTTPAdapter
 from amo.logon import Tokens
+from loguru import logger
 
 
 class Extract:
@@ -36,7 +37,7 @@ class Extract:
         try:
             content = page['_embedded'][f'{self.basename}']
         except KeyError:
-            print(page)
+            logger.critical(page)
         self.write(counter, content)
         try:
             next_page = page['_links']['next']['href']

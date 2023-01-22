@@ -61,14 +61,16 @@ class Tleads(Base):
 
     def to_dict(self):
         content = self.__dict__
-        for cf in content["custom_fields_values"]:
-            field_name = ''.join(
-                c for c in to_latin(cf["field_name"], lang_code='ru')
+        if content["custom_fields_values"] is not None:
+            for cf in content["custom_fields_values"]:
+                field_name = ''.join(
+                    c for c in to_latin(cf["field_name"], lang_code='ru')
                     if c.isalpha() or c.isdigit()
-            )
-            field_value = ",".join(str(v["value"]) for v in cf["values"])
-            content[field_name] = field_value
-        content.pop("custom_fields_values")
+                )
+                field_value = ",".join(str(v["value"]) for v in cf["values"])
+                content[field_name] = field_value
+                content.pop("custom_fields_values")
+            return content
         return content
 
 class Tevents(Base):
