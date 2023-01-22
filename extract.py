@@ -52,4 +52,4 @@ class Extract:
         while next_page is not None:
             counter += 1
             next_page = self.get_page(next_page, counter)
-        logger.success(f"{counter} entities downloaded!")
+        logger.success(f"{counter} pages downloaded!")
