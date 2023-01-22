@@ -767,7 +767,7 @@ from load import LoadWithSchemaUpdate
 AMO = 'yastaff'
 ENTITY = Tleads
 
-method = Leads('yastaff').created_at(from_="2022-12-15") #TODO
+method = Leads('yastaff')#.created_at(from_="2022-12-15") #TODO
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)
@@ -799,7 +799,7 @@ from load import Load
 AMO = 'yastaff'
 ENTITY = Tcalls
 
-method = Calls('yastaff').created_at(from_="2022-12-15")
+method = Calls('yastaff')#.created_at(from_="2022-12-15")
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)
@@ -831,7 +831,7 @@ from load import Load
 AMO = 'yastaff'
 ENTITY = Tstatuses
 
-method = Statuses('yastaff').created_at(from_="2022-12-15")
+method = Statuses('yastaff')#.created_at(from_="2022-12-15")
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)

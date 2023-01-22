@@ -8,7 +8,7 @@ from load import Load
 AMO = 'yastaff'
 ENTITY = Tstatuses
 
-method = Statuses('yastaff').created_at(from_="2022-12-15")
+method = Statuses('yastaff')#.created_at(from_="2022-12-15")
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)
