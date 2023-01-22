@@ -46,11 +46,13 @@ class Load:
 
 
     def in_batches(self, batch_size=10000):
+        logger.info(f"There are {self.files_num} files to send...")
         for i in range(0, self.files_num, batch_size):
             batch_files = self.file_list[i:i+batch_size]
             df_list = [self.read(f) for f in batch_files]
             df = pd.concat(df_list).astype('str')
             self.load(df)
+        logger.success("Load successful!")
         return True
 
     def cleanup(self):

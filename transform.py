@@ -3,6 +3,7 @@ import json
 from os import remove as rm
 from pathlib import Path
 from cyrtranslit import to_latin
+from loguru import logger
 
 
 class Base:
@@ -174,6 +175,7 @@ class Transform:
             with open(p, "r") as f:
                 j = json.load(f)
                 self.transform_file(j)
+        logger.success("Transform successful!")
         return True
 
 class TransformPipelines(Transform):

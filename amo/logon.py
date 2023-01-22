@@ -75,4 +75,5 @@ class Tokens:
         file_ = f"{self.path}/access_token.txt"
         with open(file_, 'r') as f:
             self.access_token = f.read()
+        logger.success("logged on!")
         return self.access_token

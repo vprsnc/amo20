@@ -108,6 +108,7 @@ class Tokens:
         file_ = f"{self.path}/access_token.txt"
         with open(file_, 'r') as f:
             self.access_token = f.read()
+        logger.success("logged on!")
         return self.access_token
 
 #+end_src
@@ -334,6 +335,7 @@ class Extract:
         while next_page is not None:
             counter += 1
             next_page = self.get_page(next_page, counter)
+        logger.success(f"{counter} entities downloaded!")
 
 #+end_src
 
@@ -373,6 +375,7 @@ import json
 from os import remove as rm
 from pathlib import Path
 from cyrtranslit import to_latin
+from loguru import logger
 
 
 class Base:
@@ -586,6 +589,7 @@ class Transform:
             with open(p, "r") as f:
                 j = json.load(f)
                 self.transform_file(j)
+        logger.success("Transform successful!")
         return True
 
 
@@ -664,11 +668,13 @@ class Load:
 
 
     def in_batches(self, batch_size=10000):
+        logger.info(f"There are {self.files_num} files to send...")
         for i in range(0, self.files_num, batch_size):
             batch_files = self.file_list[i:i+batch_size]
             df_list = [self.read(f) for f in batch_files]
             df = pd.concat(df_list).astype('str')
             self.load(df)
+        logger.success("Load successful!")
         return True
 
     def cleanup(self):
@@ -915,7 +921,6 @@ For that we'll create a simple script, which then we'll pass to crontab.
 
 #+begin_src shell :tangle shells/yastaff.sh
 #!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
-# echo "hello world!"
 cd /home/georgy/Projects/python/amo20
 python yastaff_etl_leads.py
 python yastaff_etl_calls.py
