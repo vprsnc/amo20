@@ -652,8 +652,9 @@ class Load:
         job = self.client.copy_table(
             self.table_ref, self.table_backup
         )
-        logger.success(job.result())
+        logger.success("Table successfully backed up!")
         self.client.delete_table(self.table_ref)
+        self.client.create_table(self.table_ref)
 
 
     def read(self, filepath):
@@ -766,7 +767,7 @@ from load import LoadWithSchemaUpdate
 AMO = 'yastaff'
 ENTITY = Tleads
 
-method = Leads('yastaff').created_at(from_="2022-12-01") #TODO
+method = Leads('yastaff').created_at(from_="2022-12-15") #TODO
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)
@@ -798,7 +799,7 @@ from load import Load
 AMO = 'yastaff'
 ENTITY = Tcalls
 
-method = Calls('yastaff').created_at(from_="2021-12-01")
+method = Calls('yastaff').created_at(from_="2022-12-15")
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)
@@ -830,7 +831,7 @@ from load import Load
 AMO = 'yastaff'
 ENTITY = Tstatuses
 
-method = Statuses('yastaff').created_at(from_="2021-12-15")
+method = Statuses('yastaff').created_at(from_="2022-12-15")
 extract = Extract(amo20, method)
 
 transform = Transform(AMO, ENTITY)

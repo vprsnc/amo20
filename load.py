@@ -30,8 +30,9 @@ class Load:
         job = self.client.copy_table(
             self.table_ref, self.table_backup
         )
-        logger.success(job.result())
+        logger.success("Table successfully backed up!")
         self.client.delete_table(self.table_ref)
+        self.client.create_table(self.table_ref)
 
 
     def read(self, filepath):
