@@ -1,0 +1,11 @@
+requests
+pandas
+google-cloud-bigquery-storage==2.0
+pandas-gbq
+gspread
+oauth2client
+python-dateutil
+six
+google-auth
+loguru
+cyrtranslit
