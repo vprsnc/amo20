@@ -70,8 +70,6 @@ class Tleads(Base):
             return True
 
 
-    else:
-        return True
     def to_dict(self):
         content = self.__dict__
         if content["custom_fields_values"] is not None:
@@ -83,10 +81,7 @@ class Tleads(Base):
                 field_value = ",".join(str(v["value"]) for v in cf["values"])
                 if self.is_english(field_name):
                     content[field_name] = field_value
-            try:
-                content.pop("custom_fields_values")
-            except KeyError:
-                pass
+            content.pop("custom_fields_values")
             return content
         return content
 
