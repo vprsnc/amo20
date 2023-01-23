@@ -13,8 +13,8 @@ method = Statuses('yastaff')#.created_at(from_="2022-12-15")
 delete
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
-    # extract = Extract(amo20, method)
-    # extract._all()
+    extract = Extract(amo20, method)
+    extract._all()
 
     transform = Transform(AMO, ENTITY)
     if transform._all():

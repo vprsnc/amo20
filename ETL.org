@@ -781,8 +781,8 @@ method = Leads('yastaff')#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
-    # extract = Extract(amo20, method)
-    # extract._all()
+    extract = Extract(amo20, method)
+    extract._all()
 
     transform = Transform(AMO, ENTITY)
     if transform._all():
@@ -791,8 +791,7 @@ if __name__ == "__main__":
     load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
     load.backup()
     if load.in_batches():
-        # load.cleanup()
-        pass
+        load.cleanup()
 #+end_src
 
 ** Calls ETL
@@ -814,8 +813,8 @@ method = Calls('yastaff')#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
-    # extract = Extract(amo20, method)
-    # extract._all()
+    extract = Extract(amo20, method)
+    extract._all()
 
     transform = Transform(AMO, ENTITY)
     if transform._all():
@@ -846,8 +845,8 @@ method = Statuses('yastaff')#.created_at(from_="2022-12-15")
 delete
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
-    # extract = Extract(amo20, method)
-    # extract._all()
+    extract = Extract(amo20, method)
+    extract._all()
 
     transform = Transform(AMO, ENTITY)
     if transform._all():
@@ -879,8 +878,8 @@ method = Users('yastaff')  # .created_at(from_=)
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
-    # extract = Extract(amo20, method)
-    # extract._all()
+    extract = Extract(amo20, method)
+    extract._all()
 
     transform = Transform(AMO, ENTITY)
     if transform._all():
@@ -942,7 +941,7 @@ cd /home/georgy/Projects/python/amo20
 #+begin_src shell :tangle shells/yastaff.sh
 #!/home/analytics/amo20/venv/bin/python
 cd /home/analytics/amo20/
-python yastaff_etl_leads.py
+# python yastaff_etl_leads.py
 # python yastaff_etl_calls.py
 # python yastaff_etl_statuses.py
 # python yastaff_etl_users.py
