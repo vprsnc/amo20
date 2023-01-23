@@ -11,8 +11,8 @@ ENTITY = Tusers
 method = Users('yastaff')  # .created_at(from_=)
 
 if __name__ == "__main__":
-    extract = Extract(amo20, method)
-    extract._all()
+    # extract = Extract(amo20, method)
+    # extract._all()
 
     transform = Transform(AMO, ENTITY)
     if transform._all():
