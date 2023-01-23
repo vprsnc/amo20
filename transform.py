@@ -61,7 +61,7 @@ class Tleads(Base):
         self.custom_fields_values = dict_["custom_fields_values"]
 
 
-    def is_english(s):
+    def is_english(self, s):
         try:
             s.encode(encoding='utf-8').decode('ascii')
         except UnicodeDecodeError:

@@ -4,6 +4,7 @@ from amo.entities import Statuses
 from setup import amo20
 from transform import Tstatuses, Transform
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tstatuses

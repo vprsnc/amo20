@@ -4,6 +4,7 @@ from amo.entities import Pipelines
 from setup import amo20
 from transform import Tpipelines, TransformPipelines
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tpipelines

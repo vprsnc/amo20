@@ -4,6 +4,7 @@ from amo.entities import Leads
 from setup import amo20
 from transform import Tleads, Transform
 from load import LoadWithSchemaUpdate
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tleads

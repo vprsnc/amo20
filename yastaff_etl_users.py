@@ -4,6 +4,7 @@ from amo.entities import Users
 from setup import amo20
 from transform import Tusers, Transform
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tusers

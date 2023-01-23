@@ -772,6 +772,7 @@ from amo.entities import Leads
 from setup import amo20
 from transform import Tleads, Transform
 from load import LoadWithSchemaUpdate
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tleads
@@ -804,6 +805,7 @@ from amo.entities import Calls
 from setup import amo20
 from transform import Tcalls, Transform
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tcalls
@@ -835,6 +837,7 @@ from amo.entities import Statuses
 from setup import amo20
 from transform import Tstatuses, Transform
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tstatuses
@@ -867,6 +870,7 @@ from amo.entities import Users
 from setup import amo20
 from transform import Tusers, Transform
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tusers
@@ -898,6 +902,7 @@ from amo.entities import Pipelines
 from setup import amo20
 from transform import Tpipelines, TransformPipelines
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tpipelines

@@ -4,6 +4,7 @@ from amo.entities import Calls
 from setup import amo20
 from transform import Tcalls, Transform
 from load import Load
+from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tcalls
