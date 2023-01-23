@@ -9,12 +9,16 @@ AMO = 'yastaff'
 ENTITY = Tleads
 
 method = Leads('yastaff')#.created_at(from_="2022-12-15") #TODO
+extract = Extract(amo20, method)
+
+
+load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
 
 if __name__ == "__main__":
     extract = Extract(amo20, method)
     extract._all()
 
-    transform = TransformPipelines(AMO, ENTITY)
+    transform = Transform(AMO, ENTITY)
     if transform._all():
         transform.cleanup()
 
