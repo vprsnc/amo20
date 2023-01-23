@@ -60,6 +60,18 @@ class Tleads(Base):
         self.labor_cost = dict_["labor_cost"]
         self.custom_fields_values = dict_["custom_fields_values"]
 
+
+    def is_english(s):
+        try:
+            s.encode(encoding='utf-8').decode('ascii')
+        except UnicodeDecodeError:
+            return False
+        else:
+            return True
+
+
+    else:
+        return True
     def to_dict(self):
         content = self.__dict__
         if content["custom_fields_values"] is not None:
@@ -69,11 +81,12 @@ class Tleads(Base):
                     if c.isalpha() or c.isdigit()
                 )
                 field_value = ",".join(str(v["value"]) for v in cf["values"])
-                content[field_name] = field_value
-                try:
-                    content.pop("custom_fields_values")
-                except KeyError:
-                    pass
+                if self.is_english(field_name):
+                    content[field_name] = field_value
+            try:
+                content.pop("custom_fields_values")
+            except KeyError:
+                pass
             return content
         return content
 

@@ -11,8 +11,8 @@ ENTITY = Tleads
 method = Leads('yastaff')#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    extract = Extract(amo20, method)
-    extract._all()
+    # extract = Extract(amo20, method)
+    # extract._all()
 
     transform = Transform(AMO, ENTITY)
     if transform._all():
@@ -21,4 +21,5 @@ if __name__ == "__main__":
     load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
     load.backup()
     if load.in_batches():
-        load.cleanup()
+        # load.cleanup()
+        pass
