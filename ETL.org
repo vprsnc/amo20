@@ -505,7 +505,11 @@ class Tleads(Base):
                 field_name = ''.join(
                     c for c in to_latin(cf["field_name"], lang_code='ru')
                     if c.isalpha() or c.isdigit()
-                )
+                ).lower()
+                while field_name in content.keys():
+                    field_name += "1"
+                if not field_name[0].isalpha(): # Check if name starts with chr
+                    field_name = "alpha" + field_name
                 field_value = ",".join(str(v["value"]) for v in cf["values"])
                 if self.is_english(field_name):
                     content[field_name] = field_value
@@ -755,7 +759,6 @@ class LoadWithSchemaUpdate(Load):
 
 
     def get_schema_from_dataframe(self, df, old_schema):
-
         df[df.select_dtypes(include=['object']).columns] =\
             df.select_dtypes(include=['object']).astype('string')
         old_schema_names = [field.name for field in old_schema]
@@ -853,6 +856,7 @@ if __name__ == "__main__":
     transform = Transform(AMO, ENTITY)
     if transform._all():
         transform.cleanup()
+        pass
 
     load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
     load.backup()

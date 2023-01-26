@@ -81,7 +81,6 @@ class LoadWithSchemaUpdate(Load):
 
 
     def get_schema_from_dataframe(self, df, old_schema):
-
         df[df.select_dtypes(include=['object']).columns] =\
             df.select_dtypes(include=['object']).astype('string')
         old_schema_names = [field.name for field in old_schema]

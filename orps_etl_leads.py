@@ -19,6 +19,7 @@ if __name__ == "__main__":
     transform = Transform(AMO, ENTITY)
     if transform._all():
         transform.cleanup()
+        pass
 
     load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
     load.backup()

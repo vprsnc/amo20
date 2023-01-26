@@ -77,7 +77,11 @@ class Tleads(Base):
                 field_name = ''.join(
                     c for c in to_latin(cf["field_name"], lang_code='ru')
                     if c.isalpha() or c.isdigit()
-                )
+                ).lower()
+                while field_name in content.keys():
+                    field_name += "1"
+                if not field_name[0].isalpha(): # Check if name starts with chr
+                    field_name = "alpha" + field_name
                 field_value = ",".join(str(v["value"]) for v in cf["values"])
                 if self.is_english(field_name):
                     content[field_name] = field_value
