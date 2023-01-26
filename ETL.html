@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-21 Sat 23:22 -->
+<!-- 2023-01-23 Mon 14:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ETL</title>
@@ -198,65 +198,68 @@
 <div id="content" class="content">
 <h1 class="title">ETL</h1>
 
-<div id="outline-container-orgb2e00ed" class="outline-2">
-<h2 id="orgb2e00ed"><span class="section-number-2">1.</span> Table of contents:</h2>
+<div id="outline-container-org440b557" class="outline-2">
+<h2 id="org440b557"><span class="section-number-2">1.</span> Table of contents:</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org1f7c67b" class="outline-3">
-<h3 id="org1f7c67b"><span class="section-number-3">1.1.</span> <a href="#orgc777fc1">Extract</a></h3>
+<div id="outline-container-org6b7291f" class="outline-3">
+<h3 id="org6b7291f"><span class="section-number-3">1.1.</span> <a href="#orge083211">Extract</a></h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org9f64a8c" class="outline-4">
-<h4 id="org9f64a8c"><span class="section-number-4">1.1.1.</span> <a href="#org325691a">Logon</a></h4>
+<div id="outline-container-org8bc5826" class="outline-4">
+<h4 id="org8bc5826"><span class="section-number-4">1.1.1.</span> <a href="#org633169f">Logon</a></h4>
 </div>
-<div id="outline-container-orga266d9c" class="outline-4">
-<h4 id="orga266d9c"><span class="section-number-4">1.1.2.</span> <a href="#orgc94aa90">Amo api methods</a></h4>
+<div id="outline-container-orge1cdb3b" class="outline-4">
+<h4 id="orge1cdb3b"><span class="section-number-4">1.1.2.</span> <a href="#orgb1b4ae0">Amo api methods</a></h4>
 <div class="outline-text-4" id="text-1-1-2">
 </div>
 <ol class="org-ol">
-<li><a id="org881374b"></a><a href="#orgc489fca">Leads</a><br /></li>
-<li><a id="orgceeaf7f"></a><a href="#orgb877f7b">Statuses</a><br /></li>
-<li><a id="orga5da04f"></a><a href="#orgbaa48ad">Notes</a><br /></li>
-<li><a id="orgb2c753a"></a><a href="#org62e5918">Pipelines</a><br /></li>
-<li><a id="org8d34d2e"></a><a href="#org1ca0636">Users</a><br /></li>
+<li><a id="org5fdaeb7"></a><a href="#orge9555be">Leads</a><br /></li>
+<li><a id="org34e0cbe"></a><a href="#org72a3460">Statuses</a><br /></li>
+<li><a id="org0e22547"></a><a href="#orgf55006c">Notes</a><br /></li>
+<li><a id="org1435f0b"></a><a href="#orge6d30aa">Pipelines</a><br /></li>
+<li><a id="orgee92400"></a><a href="#orge910acc">Users</a><br /></li>
 </ol>
 </div>
-<div id="outline-container-orga24adc8" class="outline-4">
-<h4 id="orga24adc8"><span class="section-number-4">1.1.3.</span> <a href="#org7d8d7c3">Extraction</a></h4>
+<div id="outline-container-org568d01a" class="outline-4">
+<h4 id="org568d01a"><span class="section-number-4">1.1.3.</span> <a href="#org4bfea47">Extraction</a></h4>
 </div>
-<div id="outline-container-org6d99609" class="outline-4">
-<h4 id="org6d99609"><span class="section-number-4">1.1.4.</span> <a href="#orgb69d03a">Test</a></h4>
+<div id="outline-container-orgaaa8191" class="outline-4">
+<h4 id="orgaaa8191"><span class="section-number-4">1.1.4.</span> <a href="#orge5cecbf">Test</a></h4>
 </div>
 </div>
-<div id="outline-container-org5bf8876" class="outline-3">
-<h3 id="org5bf8876"><span class="section-number-3">1.2.</span> <a href="#org4b72cec">Transform</a></h3>
+<div id="outline-container-orgd2e1ccb" class="outline-3">
+<h3 id="orgd2e1ccb"><span class="section-number-3">1.2.</span> <a href="#org5bcc882">Transform</a></h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgc9051e3" class="outline-4">
-<h4 id="orgc9051e3"><span class="section-number-4">1.2.1.</span> <a href="#org1e6c819">Transform Base</a></h4>
+<div id="outline-container-orgdf9306d" class="outline-4">
+<h4 id="orgdf9306d"><span class="section-number-4">1.2.1.</span> <a href="#org2dc8f79">Transform Base</a></h4>
 </div>
-<div id="outline-container-orga101d61" class="outline-4">
-<h4 id="orga101d61"><span class="section-number-4">1.2.2.</span> <a href="#org2b3478a">Transform Users</a></h4>
+<div id="outline-container-orga5f1283" class="outline-4">
+<h4 id="orga5f1283"><span class="section-number-4">1.2.2.</span> <a href="#org8ca0220">Transform Users</a></h4>
 </div>
-<div id="outline-container-org1a382a6" class="outline-4">
-<h4 id="org1a382a6"><span class="section-number-4">1.2.3.</span> <a href="#orgf93865d">Transform Leads</a></h4>
+<div id="outline-container-orgb27aff0" class="outline-4">
+<h4 id="orgb27aff0"><span class="section-number-4">1.2.3.</span> <a href="#org77a5c83">Transform Leads</a></h4>
 </div>
-<div id="outline-container-orgb737fd7" class="outline-4">
-<h4 id="orgb737fd7"><span class="section-number-4">1.2.4.</span> <a href="#org169d8aa">Transform Statuses</a></h4>
+<div id="outline-container-org82ef899" class="outline-4">
+<h4 id="org82ef899"><span class="section-number-4">1.2.4.</span> <a href="#org9f7a948">Transform Statuses</a></h4>
 </div>
-<div id="outline-container-org4a6c193" class="outline-4">
-<h4 id="org4a6c193"><span class="section-number-4">1.2.5.</span> <a href="#org4008eb6">Transform all</a></h4>
-</div>
-</div>
-<div id="outline-container-orgeae637a" class="outline-3">
-<h3 id="orgeae637a"><span class="section-number-3">1.3.</span> <a href="#org31f43b7">Load</a></h3>
-</div>
-<div id="outline-container-org1e4c08f" class="outline-3">
-<h3 id="org1e4c08f"><span class="section-number-3">1.4.</span> <a href="#org0de8ac1">ETL&rsquo;s themselves</a></h3>
+<div id="outline-container-orgb82b71d" class="outline-4">
+<h4 id="orgb82b71d"><span class="section-number-4">1.2.5.</span> <a href="#orgc4beb5a">Transform all</a></h4>
 </div>
 </div>
-<div id="outline-container-orgc777fc1" class="outline-2">
-<h2 id="orgc777fc1"><span class="section-number-2">2.</span> Extract</h2>
+<div id="outline-container-org4409d3a" class="outline-3">
+<h3 id="org4409d3a"><span class="section-number-3">1.3.</span> <a href="#orgfeabf0e">Load</a></h3>
+</div>
+<div id="outline-container-org350ef7b" class="outline-3">
+<h3 id="org350ef7b"><span class="section-number-3">1.4.</span> <a href="#org118a7df">ETL&rsquo;s themselves</a></h3>
+</div>
+<div id="outline-container-orgc42a7ad" class="outline-3">
+<h3 id="orgc42a7ad"><span class="section-number-3">1.5.</span> <a href="#orge6c56b6">Shell to rule them all</a></h3>
+</div>
+</div>
+<div id="outline-container-orge083211" class="outline-2">
+<h2 id="orge083211"><span class="section-number-2">2.</span> Extract</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 This is the phase we will be talking to AmoCRM api with requests calls.
@@ -264,8 +267,8 @@ The idea is to download all the entities and write them page per page to the acc
 This will be basically a list of dictionaries, easily handled by python.
 </p>
 </div>
-<div id="outline-container-org325691a" class="outline-3">
-<h3 id="org325691a"><span class="section-number-3">2.1.</span> Logon</h3>
+<div id="outline-container-org633169f" class="outline-3">
+<h3 id="org633169f"><span class="section-number-3">2.1.</span> Logon</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 First, we need to specify the logon information that we will use to connect to amo.
@@ -338,8 +341,9 @@ We also want this class to automatically get the code from system environment, i
             dict_ = json.loads(r.text)
             <span style="color: #e67e80;">try</span>:
                 <span style="color: #e67e80;">self</span>.store(dict_, <span style="color: #a7c080;">'access_token'</span>)
+                <span style="color: #e67e80;">self</span>.store(dict_, <span style="color: #a7c080;">'refresh_token'</span>)
             <span style="color: #e67e80;">except</span> <span style="color: #a7c080;">KeyError</span>:
-                <span style="color: #83c092;">print</span>(dict_)
+                logger.critical(dict_)
 
         <span style="color: #e67e80;">else</span>:
             <span style="color: #e67e80;">self</span>.init()
@@ -350,6 +354,7 @@ We also want this class to automatically get the code from system environment, i
         file_ = f<span style="color: #a7c080;">"</span>{<span style="color: #e67e80;">self</span>.path}<span style="color: #a7c080;">/access_token.txt"</span>
         <span style="color: #e67e80;">with</span> <span style="color: #83c092;">open</span>(file_, <span style="color: #a7c080;">'r'</span>) <span style="color: #e67e80;">as</span> f:
             <span style="color: #e67e80;">self</span>.access_token = f.read()
+        logger.success(<span style="color: #a7c080;">"logged on!"</span>)
         <span style="color: #e67e80;">return</span> <span style="color: #e67e80;">self</span>.access_token
 
 </pre>
@@ -364,16 +369,16 @@ It&rsquo;s generally a good idea to store it in a separate file that will not be
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">from</span> setup <span style="color: #e67e80;">import</span> amo20
 <span style="color: #e67e80;">from</span> os <span style="color: #e67e80;">import</span> environ
 
-
-<span style="color: #7fbbb3;">access_token</span> = amo20.provide_access()
-access_token
+<span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">del environ["CODE"]</span>
+<span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">access_token = amo20.provide_access()</span>
+amo20.refresh()
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc94aa90" class="outline-3">
-<h3 id="orgc94aa90"><span class="section-number-3">2.2.</span> Amo api methods</h3>
+<div id="outline-container-orgb1b4ae0" class="outline-3">
+<h3 id="orgb1b4ae0"><span class="section-number-3">2.2.</span> Amo api methods</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 OK, let&rsquo;s put away our <b>etl</b> file for the moment and return to setting up things.
@@ -440,34 +445,35 @@ Now we need to specify class for each entity that we need.
 The list of entities is:
 </p>
 </div>
-<div id="outline-container-orgc489fca" class="outline-4">
-<h4 id="orgc489fca"><span class="section-number-4">2.2.1.</span> Leads</h4>
+<div id="outline-container-orge9555be" class="outline-4">
+<h4 id="orge9555be"><span class="section-number-4">2.2.1.</span> Leads</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <p>
 Leads are the most difficult entity because it has custom fields, which can be different for each lead.
-We&rsquo;ll deal with them on the <a href="#org4b72cec">3</a> stage.
+We&rsquo;ll deal with them on the <a href="#org5bcc882">3</a> stage.
 </p>
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Leads</span>(Base):
-    <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"leads'</span>
-<span style="color: #a7c080;">    entity = "</span>leads<span style="color: #a7c080;">"</span>
+    <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"leads"</span>
+    <span style="color: #7fbbb3;">basename</span> = <span style="color: #a7c080;">"leads"</span>
+    <span style="color: #7fbbb3;">entity</span> = <span style="color: #a7c080;">"leads"</span>
 
 
-<span style="color: #a7c080;">    def __init__(self, subdomain):</span>
-<span style="color: #a7c080;">        self.url = f"</span>https://{subdomain}.amocrm.ru/api/v4/<span style="color: #a7c080;">" + self.entity</span>
+    <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, subdomain):
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">url</span> = f<span style="color: #a7c080;">"https://</span>{subdomain}<span style="color: #a7c080;">.amocrm.ru/api/v4/"</span> + <span style="color: #e67e80;">self</span>.entity + <span style="color: #a7c080;">"?"</span>
 
 
-<span style="color: #a7c080;">    def filter(self):</span>
-<span style="color: #a7c080;">        pass</span>
+    <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">filter</span>(<span style="color: #e67e80;">self</span>):
+        <span style="color: #e67e80;">pass</span>
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb877f7b" class="outline-4">
-<h4 id="orgb877f7b"><span class="section-number-4">2.2.2.</span> Statuses</h4>
+<div id="outline-container-org72a3460" class="outline-4">
+<h4 id="org72a3460"><span class="section-number-4">2.2.2.</span> Statuses</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 By statuses we mean here <code>lead_status_changed</code> entity which is sub-type for events.
@@ -475,17 +481,17 @@ By statuses we mean here <code>lead_status_changed</code> entity which is sub-ty
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span>  <span style="color: #a7c080;">Events</span>(Base):
-    <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"Events"</span>
     <span style="color: #7fbbb3;">entity</span> = <span style="color: #a7c080;">"events"</span>
+    <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"statuses"</span>
+    <span style="color: #7fbbb3;">basename</span> = <span style="color: #a7c080;">"events"</span>
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, subdomain):
-        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">url</span> = f<span style="color: #a7c080;">"https://</span>{subdomain}<span style="color: #a7c080;">.amocrm.ru/api/v4/"</span> + <span style="color: #e67e80;">self</span>.entity
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">url</span> = f<span style="color: #a7c080;">"https://</span>{subdomain}<span style="color: #a7c080;">.amocrm.ru/api/v4/"</span> + <span style="color: #e67e80;">self</span>.entity + <span style="color: #a7c080;">"?"</span>
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Statuses</span>(Events):
-    <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"statuses"</span>
     <span style="color: #7fbbb3;">sub_type</span> = <span style="color: #a7c080;">"?filter[type]=lead_status_changed"</span>
 
 
@@ -497,26 +503,28 @@ By statuses we mean here <code>lead_status_changed</code> entity which is sub-ty
 </div>
 </div>
 
-<div id="outline-container-orgbaa48ad" class="outline-4">
-<h4 id="orgbaa48ad"><span class="section-number-4">2.2.3.</span> Notes</h4>
+<div id="outline-container-orgf55006c" class="outline-4">
+<h4 id="orgf55006c"><span class="section-number-4">2.2.3.</span> Notes</h4>
 <div class="outline-text-4" id="text-2-2-3">
 <p>
-Notes are sub-entity of <a href="#orgc489fca">2.2.1</a>, while calls are sub-type of Notes.
+Notes are sub-entity of <a href="#orge9555be">2.2.1</a>, while calls are sub-type of Notes.
 </p>
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Notes</span>(Leads):
     <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"notes"</span>
+    <span style="color: #7fbbb3;">basename</span> = <span style="color: #a7c080;">"notes"</span>
     <span style="color: #7fbbb3;">sub_entity</span> = <span style="color: #a7c080;">"/notes"</span>
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, subdomain):
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">url</span> = f<span style="color: #a7c080;">"https://</span>{subdomain}<span style="color: #a7c080;">.amocrm.ru/api/v4/"</span> + <span style="color: #e67e80;">self</span>.entity\
-            + <span style="color: #e67e80;">self</span>.sub_entity
+            + <span style="color: #e67e80;">self</span>.sub_entity + <span style="color: #a7c080;">"?"</span>
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Calls</span>(Notes):
+    <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"calls"</span>
     <span style="color: #7fbbb3;">sub_type</span> = <span style="color: #a7c080;">"?filter[note_type]=call_in"</span>
 
 
@@ -529,28 +537,29 @@ Notes are sub-entity of <a href="#orgc489fca">2.2.1</a>, while calls are sub-typ
 </div>
 </div>
 
-<div id="outline-container-org62e5918" class="outline-4">
-<h4 id="org62e5918"><span class="section-number-4">2.2.4.</span> Pipelines</h4>
+<div id="outline-container-orge6d30aa" class="outline-4">
+<h4 id="orge6d30aa"><span class="section-number-4">2.2.4.</span> Pipelines</h4>
 <div class="outline-text-4" id="text-2-2-4">
 <p>
-Pipelines are sub-entity for <a href="#orgc489fca">2.2.1</a>  and contain status names in themselves
+Pipelines are sub-entity for <a href="#orge9555be">2.2.1</a>  and contain status names in themselves
 </p>
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Pipelines</span>(Leads):
     <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"pipelines"</span>
+    <span style="color: #7fbbb3;">basename</span> = <span style="color: #a7c080;">"pipelines"</span>
     <span style="color: #7fbbb3;">sub_entity</span> = <span style="color: #a7c080;">"/pipelines"</span>
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, subdomain):
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">url</span> = f<span style="color: #a7c080;">"https://</span>{subdomain}<span style="color: #a7c080;">.amocrm.ru/api/v4/"</span> + <span style="color: #e67e80;">self</span>.entity\
-            + <span style="color: #e67e80;">self</span>.sub_entity
+            + <span style="color: #e67e80;">self</span>.sub_entity + <span style="color: #a7c080;">"?"</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1ca0636" class="outline-4">
-<h4 id="org1ca0636"><span class="section-number-4">2.2.5.</span> Users</h4>
+<div id="outline-container-orge910acc" class="outline-4">
+<h4 id="orge910acc"><span class="section-number-4">2.2.5.</span> Users</h4>
 <div class="outline-text-4" id="text-2-2-5">
 <p>
 Users are stand-alone entity.
@@ -560,15 +569,16 @@ Users are stand-alone entity.
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Users</span>(Base):
     <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"users"</span>
     <span style="color: #7fbbb3;">entity</span> = <span style="color: #a7c080;">"users"</span>
+    <span style="color: #7fbbb3;">basename</span> = <span style="color: #a7c080;">"users"</span>
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, subdomain):
-        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">url</span> = f<span style="color: #a7c080;">"https://</span>{subdomain}<span style="color: #a7c080;">.amocrm.ru/api/v4/"</span> + <span style="color: #e67e80;">self</span>.entity
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">url</span> = f<span style="color: #a7c080;">"https://</span>{subdomain}<span style="color: #a7c080;">.amocrm.ru/api/v4/"</span> + <span style="color: #e67e80;">self</span>.entity + <span style="color: #a7c080;">"?"</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org7d8d7c3" class="outline-3">
-<h3 id="org7d8d7c3"><span class="section-number-3">2.3.</span> Extraction</h3>
+<div id="outline-container-org4bfea47" class="outline-3">
+<h3 id="org4bfea47"><span class="section-number-3">2.3.</span> Extraction</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Now, when we have all entities described as API methods, we can start extracting them.
@@ -586,20 +596,20 @@ Firstly, of course we need to log in, so this will be an attribute of our base c
 <span style="color: #e67e80;">import</span> json
 <span style="color: #e67e80;">from</span> requests.adapters <span style="color: #e67e80;">import</span> HTTPAdapter
 <span style="color: #e67e80;">from</span> amo.logon <span style="color: #e67e80;">import</span> Tokens
+<span style="color: #e67e80;">from</span> loguru <span style="color: #e67e80;">import</span> logger
 
 
 <span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Extract</span>:
     session = requests.Session()
 
-    <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, tokens, entity): <span style="color: #859289; font-style: italic;">#</span><span style="color: #ddbc7f; font-weight: bold; font-style: italic;">TODO</span><span style="color: #859289; font-style: italic;"> take truename from entity</span>
+    <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, tokens, entity):
         <span style="color: #7fbbb3;">access_token</span> = tokens.provide_access()
         <span style="color: #7fbbb3;">header</span> = {<span style="color: #a7c080;">"Authorization"</span>: <span style="color: #a7c080;">"Bearer "</span> + access_token}
         <span style="color: #e67e80;">self</span>.session.headers.update(header)
         <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">And to prevent amo from dropping connection:</span>
         <span style="color: #e67e80;">self</span>.session.mount(<span style="color: #a7c080;">'https://'</span>, HTTPAdapter(max_retries=<span style="color: #d699b6;">5</span>))
-        <span style="color: #e67e80;">self</span>.entity = entity.truename
-        <span style="color: #e67e80;">self</span>.basename = entity.entity   <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">name to which we'll make a call</span>
-        <span style="color: #e67e80;">self</span>.truename = truename        <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">name for writing and further pr...</span>
+        <span style="color: #e67e80;">self</span>.basename = entity.basename
+        <span style="color: #e67e80;">self</span>.truename = entity.truename        <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">name for writing and further pr...</span>
         <span style="color: #e67e80;">self</span>.amo = tokens.subdomain
         <span style="color: #e67e80;">self</span>.url = entity.url
 
@@ -618,7 +628,10 @@ Firstly, of course we need to log in, so this will be an attribute of our base c
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">get_page</span>(<span style="color: #e67e80;">self</span>, url, counter):
         req = <span style="color: #e67e80;">self</span>.session.get(url)
         page = <span style="color: #e67e80;">self</span>.parse_page(req)
-        content = page[<span style="color: #a7c080;">'_embedded'</span>][f<span style="color: #a7c080;">'</span>{<span style="color: #e67e80;">self</span>.truename}<span style="color: #a7c080;">'</span>]
+        <span style="color: #e67e80;">try</span>:
+            content = page[<span style="color: #a7c080;">'_embedded'</span>][f<span style="color: #a7c080;">'</span>{<span style="color: #e67e80;">self</span>.basename}<span style="color: #a7c080;">'</span>]
+        <span style="color: #e67e80;">except</span> <span style="color: #a7c080;">KeyError</span>:
+            logger.critical(page)
         <span style="color: #e67e80;">self</span>.write(counter, content)
         <span style="color: #e67e80;">try</span>:
             next_page = page[<span style="color: #a7c080;">'_links'</span>][<span style="color: #a7c080;">'next'</span>][<span style="color: #a7c080;">'href'</span>]
@@ -633,14 +646,15 @@ Firstly, of course we need to log in, so this will be an attribute of our base c
         <span style="color: #e67e80;">while</span> next_page <span style="color: #e67e80;">is</span> <span style="color: #e67e80;">not</span> <span style="color: #83c092;">None</span>:
             counter += <span style="color: #d699b6;">1</span>
             next_page = <span style="color: #e67e80;">self</span>.get_page(next_page, counter)
+        logger.success(f<span style="color: #a7c080;">"</span>{counter}<span style="color: #a7c080;"> pages downloaded!"</span>)
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb69d03a" class="outline-3">
-<h3 id="orgb69d03a"><span class="section-number-3">2.4.</span> Test</h3>
+<div id="outline-container-orge5cecbf" class="outline-3">
+<h3 id="orge5cecbf"><span class="section-number-3">2.4.</span> Test</h3>
 <div class="outline-text-3" id="text-2-4">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">from</span> extract <span style="color: #e67e80;">import</span> Extract
@@ -662,8 +676,8 @@ All&rsquo;s working!
 </div>
 </div>
 
-<div id="outline-container-org4b72cec" class="outline-2">
-<h2 id="org4b72cec"><span class="section-number-2">3.</span> Transform</h2>
+<div id="outline-container-org5bcc882" class="outline-2">
+<h2 id="org5bcc882"><span class="section-number-2">3.</span> Transform</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We&rsquo;ve managed to get our entities from AmoCRM with API calls, but Amo data format is Json.
@@ -674,8 +688,8 @@ There is another reason for that as well: custom fields for some entities. Those
 </p>
 </div>
 
-<div id="outline-container-org1e6c819" class="outline-3">
-<h3 id="org1e6c819"><span class="section-number-3">3.1.</span> Transform Base</h3>
+<div id="outline-container-org2dc8f79" class="outline-3">
+<h3 id="org2dc8f79"><span class="section-number-3">3.1.</span> Transform Base</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Let&rsquo;s start with defining a base class for all the entities.
@@ -689,6 +703,7 @@ We will be passing <code>dict</code> to each entity from which it will read the 
 <span style="color: #e67e80;">from</span> os <span style="color: #e67e80;">import</span> remove <span style="color: #e67e80;">as</span> rm
 <span style="color: #e67e80;">from</span> pathlib <span style="color: #e67e80;">import</span> Path
 <span style="color: #e67e80;">from</span> cyrtranslit <span style="color: #e67e80;">import</span> to_latin
+<span style="color: #e67e80;">from</span> loguru <span style="color: #e67e80;">import</span> logger
 
 
 <span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Base</span>:
@@ -726,8 +741,8 @@ So, the entities are:
 </p>
 </div>
 </div>
-<div id="outline-container-org2b3478a" class="outline-3">
-<h3 id="org2b3478a"><span class="section-number-3">3.2.</span> Transform Users</h3>
+<div id="outline-container-org8ca0220" class="outline-3">
+<h3 id="org8ca0220"><span class="section-number-3">3.2.</span> Transform Users</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Tusers</span>(Base):
@@ -744,14 +759,15 @@ So, the entities are:
 </div>
 </div>
 
-<div id="outline-container-orgf93865d" class="outline-3">
-<h3 id="orgf93865d"><span class="section-number-3">3.3.</span> Transform Leads</h3>
+<div id="outline-container-org77a5c83" class="outline-3">
+<h3 id="org77a5c83"><span class="section-number-3">3.3.</span> Transform Leads</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Tricky part about leads, is that it has a list of <b>custom fields</b>.
 We&rsquo;ll modify <code>to_dict</code> method of the base class to comprehend those fields.
 Some of their names are in Cyrillic, so we need to translate it.
 Some have multiple values so we join them separated by comma.
+And sicne there were detected some fields that are not even Russian (Chinese (sic!)), we will need also for that and remove such fields.
 </p>
 
 <div class="org-src-container">
@@ -779,16 +795,29 @@ Some have multiple values so we join them separated by comma.
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">labor_cost</span> = dict_[<span style="color: #a7c080;">"labor_cost"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">custom_fields_values</span> = dict_[<span style="color: #a7c080;">"custom_fields_values"</span>]
 
+
+    <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">is_english</span>(<span style="color: #e67e80;">self</span>, s):
+        <span style="color: #e67e80;">try</span>:
+            s.encode(encoding=<span style="color: #a7c080;">'utf-8'</span>).decode(<span style="color: #a7c080;">'ascii'</span>)
+        <span style="color: #e67e80;">except</span> <span style="color: #a7c080;">UnicodeDecodeError</span>:
+            <span style="color: #e67e80;">return</span> <span style="color: #83c092;">False</span>
+        <span style="color: #e67e80;">else</span>:
+            <span style="color: #e67e80;">return</span> <span style="color: #83c092;">True</span>
+
+
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">to_dict</span>(<span style="color: #e67e80;">self</span>):
-        <span style="color: #7fbbb3;">content</span> = <span style="color: #e67e80;">self</span>.<span style="color: #83c092;">__dict__</span>
-        <span style="color: #e67e80;">for</span> cf <span style="color: #e67e80;">in</span> <span style="color: #7fbbb3;">content</span>[<span style="color: #a7c080;">"custom_fields_values"</span>]:
-            field_name = <span style="color: #a7c080;">''</span>.join(
-                c <span style="color: #e67e80;">for</span> c <span style="color: #e67e80;">in</span> to_latin(cf[<span style="color: #a7c080;">"field_name"</span>], lang_code=<span style="color: #a7c080;">'ru'</span>)
+        content = <span style="color: #e67e80;">self</span>.<span style="color: #83c092;">__dict__</span>
+        <span style="color: #e67e80;">if</span> content[<span style="color: #a7c080;">"custom_fields_values"</span>] <span style="color: #e67e80;">is</span> <span style="color: #e67e80;">not</span> <span style="color: #83c092;">None</span>:
+            <span style="color: #e67e80;">for</span> cf <span style="color: #e67e80;">in</span> content[<span style="color: #a7c080;">"custom_fields_values"</span>]:
+                field_name = <span style="color: #a7c080;">''</span>.join(
+                    c <span style="color: #e67e80;">for</span> c <span style="color: #e67e80;">in</span> to_latin(cf[<span style="color: #a7c080;">"field_name"</span>], lang_code=<span style="color: #a7c080;">'ru'</span>)
                     <span style="color: #e67e80;">if</span> c.isalpha() <span style="color: #e67e80;">or</span> c.isdigit()
-            )
-            field_value = <span style="color: #a7c080;">","</span>.join(<span style="color: #83c092;">str</span>(v[<span style="color: #a7c080;">"value"</span>]) <span style="color: #e67e80;">for</span> v <span style="color: #e67e80;">in</span> cf[<span style="color: #a7c080;">"values"</span>])
-            content[<span style="color: #7fbbb3;">field_name</span>] = field_value
-        content.pop(<span style="color: #a7c080;">"custom_fields_values"</span>)
+                )
+                field_value = <span style="color: #a7c080;">","</span>.join(<span style="color: #83c092;">str</span>(v[<span style="color: #a7c080;">"value"</span>]) <span style="color: #e67e80;">for</span> v <span style="color: #e67e80;">in</span> cf[<span style="color: #a7c080;">"values"</span>])
+                <span style="color: #e67e80;">if</span> <span style="color: #e67e80;">self</span>.is_english(field_name):
+                    content[<span style="color: #7fbbb3;">field_name</span>] = field_value
+            content.pop(<span style="color: #a7c080;">"custom_fields_values"</span>)
+            <span style="color: #e67e80;">return</span> content
         <span style="color: #e67e80;">return</span> content
 
 </pre>
@@ -796,8 +825,8 @@ Some have multiple values so we join them separated by comma.
 </div>
 </div>
 
-<div id="outline-container-org169d8aa" class="outline-3">
-<h3 id="org169d8aa"><span class="section-number-3">3.4.</span> Transform Statuses</h3>
+<div id="outline-container-org9f7a948" class="outline-3">
+<h3 id="org9f7a948"><span class="section-number-3">3.4.</span> Transform Statuses</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 As we remember Statuses are sub-type of the events, so we&rsquo;ll first define Events class, and inherit from it.
@@ -808,6 +837,7 @@ As we remember Statuses are sub-type of the events, so we&rsquo;ll first define 
     <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"events"</span>
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, dict_):
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">id_</span> = dict_[<span style="color: #a7c080;">"id"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">type_</span> = dict_[<span style="color: #a7c080;">"type"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">entity_id</span> = dict_[<span style="color: #a7c080;">"entity_id"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">entity_type</span> = dict_[<span style="color: #a7c080;">"entity_type"</span>]
@@ -820,6 +850,13 @@ As we remember Statuses are sub-type of the events, so we&rsquo;ll first define 
     <span style="color: #7fbbb3;">truename</span> = <span style="color: #a7c080;">"statuses"</span>
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, dict_):
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">id_</span> = dict_[<span style="color: #a7c080;">"id"</span>]
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">type_</span> = dict_[<span style="color: #a7c080;">"type"</span>]
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">entity_id</span> = dict_[<span style="color: #a7c080;">"entity_id"</span>]
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">entity_type</span> = dict_[<span style="color: #a7c080;">"entity_type"</span>]
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">created_by</span> = dict_[<span style="color: #a7c080;">"created_by"</span>]
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">created_at</span> = dict_[<span style="color: #a7c080;">"created_at"</span>]
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">account_id</span> = dict_[<span style="color: #a7c080;">"account_id"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">value_after_status_id</span> = dict_[<span style="color: #a7c080;">"value_after"</span>][<span style="color: #d699b6;">0</span>][<span style="color: #a7c080;">"lead_status"</span>][<span style="color: #a7c080;">"id"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">value_after_pipeline_id</span> = dict_[<span style="color: #a7c080;">"value_after"</span>][<span style="color: #d699b6;">0</span>][<span style="color: #a7c080;">"lead_status"</span>][<span style="color: #a7c080;">"pipeline_id"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">value_before_status_id</span> = dict_[<span style="color: #a7c080;">"value_before"</span>][<span style="color: #d699b6;">0</span>][<span style="color: #a7c080;">"lead_status"</span>][<span style="color: #a7c080;">"id"</span>]
@@ -830,8 +867,8 @@ As we remember Statuses are sub-type of the events, so we&rsquo;ll first define 
 </div>
 </div>
 
-<div id="outline-container-orge3c2bc5" class="outline-3">
-<h3 id="orge3c2bc5"><span class="section-number-3">3.5.</span> Transform Calls</h3>
+<div id="outline-container-org532120c" class="outline-3">
+<h3 id="org532120c"><span class="section-number-3">3.5.</span> Transform Calls</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Tcalls</span>(Base):
@@ -847,7 +884,7 @@ As we remember Statuses are sub-type of the events, so we&rsquo;ll first define 
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">responsible_user_id</span> = dict_[<span style="color: #a7c080;">"responsible_user_id"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">group_id</span> = dict_[<span style="color: #a7c080;">"group_id"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">uniq</span> = dict_[<span style="color: #a7c080;">"params"</span>][<span style="color: #a7c080;">"uniq"</span>]
-        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">account_id</span> = dict_[<span style="color: #a7c080;">"params"</span>][<span style="color: #a7c080;">"account_id"</span>]
+        <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">self.account_id = dict_["params"]["account_id"]</span>
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">duration</span> = dict_[<span style="color: #a7c080;">"params"</span>][<span style="color: #a7c080;">"duration"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">source</span> = dict_[<span style="color: #a7c080;">"params"</span>][<span style="color: #a7c080;">"source"</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">phone</span> = dict_[<span style="color: #a7c080;">"params"</span>][<span style="color: #a7c080;">"phone"</span>]
@@ -856,8 +893,8 @@ As we remember Statuses are sub-type of the events, so we&rsquo;ll first define 
 </div>
 </div>
 </div>
-<div id="outline-container-org24e3a5c" class="outline-3">
-<h3 id="org24e3a5c"><span class="section-number-3">3.6.</span> Tranform Pipelines</h3>
+<div id="outline-container-orga79f910" class="outline-3">
+<h3 id="orga79f910"><span class="section-number-3">3.6.</span> Tranform Pipelines</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 Pipelines are a bit tricky as well.
@@ -876,7 +913,8 @@ Though there are no custom fields different for each entry, it contains statuses
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">write_statuses</span>(<span style="color: #e67e80;">self</span>, path):
         <span style="color: #e67e80;">for</span> status <span style="color: #e67e80;">in</span> <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">statuses</span>:
-            content = {
+            <span style="color: #e67e80;">self</span>.id_ = status[<span style="color: #a7c080;">"id"</span>]
+            <span style="color: #7fbbb3;">content</span> = {
                 <span style="color: #a7c080;">"id_"</span>: status[<span style="color: #a7c080;">"id"</span>],
                 <span style="color: #a7c080;">"pipeline_id"</span>: <span style="color: #e67e80;">self</span>.pipeline_id,
                 <span style="color: #a7c080;">"pipeline_name"</span>: <span style="color: #e67e80;">self</span>.pipeline_name,
@@ -895,8 +933,8 @@ Though there are no custom fields different for each entry, it contains statuses
 </div>
 </div>
 
-<div id="outline-container-org4008eb6" class="outline-3">
-<h3 id="org4008eb6"><span class="section-number-3">3.7.</span> Transform all</h3>
+<div id="outline-container-orgc4beb5a" class="outline-3">
+<h3 id="orgc4beb5a"><span class="section-number-3">3.7.</span> Transform all</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 Now when we have classes for all the entities, we want a clear procedure of transforming them all at once.
@@ -929,6 +967,7 @@ We want to read them all, and, if succeeded, clear the directory.
             <span style="color: #e67e80;">with</span> <span style="color: #83c092;">open</span>(p, <span style="color: #a7c080;">"r"</span>) <span style="color: #e67e80;">as</span> <span style="color: #7fbbb3;">f</span>:
                 j = json.load(f)
                 <span style="color: #e67e80;">self</span>.transform_file(j)
+        logger.success(<span style="color: #a7c080;">"Transform successful!"</span>)
         <span style="color: #e67e80;">return</span> <span style="color: #83c092;">True</span>
 
 
@@ -940,7 +979,7 @@ And since statuses have different write methods, we should inherit the other cla
 </p>
 
 <div class="org-src-container">
-<pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">TransformStatuses</span>(Transform):
+<pre class="src src-jupyter-python"><span style="color: #e67e80;">class</span> <span style="color: #a7c080;">TransformPipelines</span>(Transform):
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, amo, entity):
        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">amo</span> = amo
@@ -960,8 +999,8 @@ And since statuses have different write methods, we should inherit the other cla
 </div>
 </div>
 
-<div id="outline-container-org31f43b7" class="outline-2">
-<h2 id="org31f43b7"><span class="section-number-2">4.</span> Load</h2>
+<div id="outline-container-orgfeabf0e" class="outline-2">
+<h2 id="orgfeabf0e"><span class="section-number-2">4.</span> Load</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 We&rsquo;re using Google BigQuery as Data Warehouse, so we need first to establish a connection with the help of credentials file.
@@ -973,7 +1012,7 @@ First, we create base load class for all the entities:
 
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">import</span> os
-<span style="color: #e67e80;">from</span> datetime <span style="color: #e67e80;">import</span> date
+<span style="color: #e67e80;">from</span> datetime <span style="color: #e67e80;">import</span> datetime
 <span style="color: #e67e80;">import</span> pandas <span style="color: #e67e80;">as</span> pd
 <span style="color: #e67e80;">from</span> google.cloud <span style="color: #e67e80;">import</span> bigquery <span style="color: #e67e80;">as</span> bq
 <span style="color: #e67e80;">from</span> google.api_core.exceptions <span style="color: #e67e80;">import</span> BadRequest
@@ -981,12 +1020,14 @@ First, we create base load class for all the entities:
 
 
 <span style="color: #e67e80;">class</span> <span style="color: #a7c080;">Load</span>:
-    <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>):
+    <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">__init__</span>(<span style="color: #e67e80;">self</span>, amo, entity):
         os.environ[<span style="color: #a7c080;">"GOOGLE_APPLICATION_CREDENTIALS"</span>] = \
             <span style="color: #a7c080;">'./tokens/oddjob-db-2007-759fe782b144.json'</span>
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">client</span> = bq.Client()
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">path</span> = f<span style="color: #a7c080;">"temp_data/</span>{amo}<span style="color: #a7c080;">/</span>{entity}<span style="color: #a7c080;">_transformed/"</span>
-        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">date</span> = <span style="color: #83c092;">str</span>(date.today())
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">date</span> = <span style="color: #83c092;">str</span>(datetime.now()).replace(<span style="color: #a7c080;">" "</span>, <span style="color: #a7c080;">"-"</span>)\
+                                       .replace(<span style="color: #a7c080;">":"</span>, <span style="color: #a7c080;">"-"</span>)\
+                                       .split(<span style="color: #a7c080;">"."</span>)[<span style="color: #d699b6;">0</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">files_num</span> = <span style="color: #83c092;">sum</span>(<span style="color: #d699b6;">1</span> <span style="color: #e67e80;">for</span> <span style="color: #83c092;">file</span> <span style="color: #e67e80;">in</span> os.listdir(<span style="color: #e67e80;">self</span>.path))
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">file_list</span> = [<span style="color: #e67e80;">self</span>.path + f <span style="color: #e67e80;">for</span> f <span style="color: #e67e80;">in</span> os.listdir(<span style="color: #e67e80;">self</span>.path)]
 
@@ -1002,8 +1043,9 @@ First, we create base load class for all the entities:
         job = <span style="color: #e67e80;">self</span>.client.copy_table(
             <span style="color: #e67e80;">self</span>.table_ref, <span style="color: #e67e80;">self</span>.table_backup
         )
-        logger.success(job.result())
-        client.delete_table(table_ref)
+        logger.success(<span style="color: #a7c080;">"Table successfully backed up!"</span>)
+        <span style="color: #e67e80;">self</span>.client.delete_table(<span style="color: #e67e80;">self</span>.table_ref)
+        <span style="color: #e67e80;">self</span>.client.create_table(<span style="color: #e67e80;">self</span>.table_ref)
 
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">read</span>(<span style="color: #e67e80;">self</span>, filepath):
@@ -1018,12 +1060,14 @@ First, we create base load class for all the entities:
 
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">in_batches</span>(<span style="color: #e67e80;">self</span>, batch_size=<span style="color: #d699b6;">10000</span>):
+        logger.info(f<span style="color: #a7c080;">"There are </span>{<span style="color: #e67e80;">self</span>.files_num}<span style="color: #a7c080;"> files to send..."</span>)
         <span style="color: #e67e80;">for</span> i <span style="color: #e67e80;">in</span> <span style="color: #83c092;">range</span>(<span style="color: #d699b6;">0</span>, <span style="color: #e67e80;">self</span>.files_num, batch_size):
             batch_files = <span style="color: #e67e80;">self</span>.file_list[i:i+batch_size]
-            <span style="color: #83c092;">print</span>(f <span style="color: #e67e80;">for</span> f <span style="color: #e67e80;">in</span> batch_files)
             df_list = [<span style="color: #e67e80;">self</span>.read(f) <span style="color: #e67e80;">for</span> f <span style="color: #e67e80;">in</span> batch_files]
             df = pd.concat(df_list).astype(<span style="color: #a7c080;">'str'</span>)
             <span style="color: #e67e80;">self</span>.load(df)
+        logger.success(<span style="color: #a7c080;">"Load successful!"</span>)
+        <span style="color: #e67e80;">return</span> <span style="color: #83c092;">True</span>
 
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">cleanup</span>(<span style="color: #e67e80;">self</span>):
         <span style="color: #e67e80;">for</span> f <span style="color: #e67e80;">in</span> <span style="color: #e67e80;">self</span>.file_list:
@@ -1045,7 +1089,9 @@ So, we&rsquo;ll need to update table schema in case there are some column that i
             <span style="color: #a7c080;">'./tokens/oddjob-db-2007-759fe782b144.json'</span>
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">client</span> = bq.Client()
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">path</span> = f<span style="color: #a7c080;">"temp_data/</span>{amo}<span style="color: #a7c080;">/</span>{entity}<span style="color: #a7c080;">_transformed/"</span>
-        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">date</span> = <span style="color: #83c092;">str</span>(date.today())
+        <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">date</span> = <span style="color: #83c092;">str</span>(datetime.now()).replace(<span style="color: #a7c080;">" "</span>, <span style="color: #a7c080;">"-"</span>)\
+                                       .replace(<span style="color: #a7c080;">":"</span>, <span style="color: #a7c080;">"-"</span>)\
+                                       .split(<span style="color: #a7c080;">"."</span>)[<span style="color: #d699b6;">0</span>]
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">files_num</span> = <span style="color: #83c092;">sum</span>(<span style="color: #d699b6;">1</span> <span style="color: #e67e80;">for</span> <span style="color: #83c092;">file</span> <span style="color: #e67e80;">in</span> os.listdir(<span style="color: #e67e80;">self</span>.path))
         <span style="color: #e67e80;">self</span>.<span style="color: #7fbbb3;">file_list</span> = [<span style="color: #e67e80;">self</span>.path + f <span style="color: #e67e80;">for</span> f <span style="color: #e67e80;">in</span> os.listdir(<span style="color: #e67e80;">self</span>.path)]
 
@@ -1074,7 +1120,7 @@ So, we&rsquo;ll need to update table schema in case there are some column that i
         table = <span style="color: #e67e80;">self</span>.client.get_table(<span style="color: #e67e80;">self</span>.table_ref)
 
         old_schema = <span style="color: #83c092;">list</span>(table.schema)
-        new_schema = get_schema_from_dataframe(df, old_schema)
+        new_schema = <span style="color: #e67e80;">self</span>.get_schema_from_dataframe(df, old_schema)
 
         combined_schema = old_schema + new_schema
 
@@ -1085,7 +1131,6 @@ So, we&rsquo;ll need to update table schema in case there are some column that i
     <span style="color: #e67e80;">def</span> <span style="color: #a7c080;">in_batches</span>(<span style="color: #e67e80;">self</span>, batch_size=<span style="color: #d699b6;">10000</span>):
         <span style="color: #e67e80;">for</span> i <span style="color: #e67e80;">in</span> <span style="color: #83c092;">range</span>(<span style="color: #d699b6;">0</span>, <span style="color: #e67e80;">self</span>.files_num, batch_size):
             batch_files = <span style="color: #e67e80;">self</span>.file_list[i:i+batch_size]
-            <span style="color: #83c092;">print</span>(f <span style="color: #e67e80;">for</span> f <span style="color: #e67e80;">in</span> batch_files)
             df_list = [<span style="color: #e67e80;">self</span>.read(f) <span style="color: #e67e80;">for</span> f <span style="color: #e67e80;">in</span> batch_files]
             df = pd.concat(df_list).astype(<span style="color: #a7c080;">'str'</span>)
             <span style="color: #e67e80;">try</span>:
@@ -1093,9 +1138,9 @@ So, we&rsquo;ll need to update table schema in case there are some column that i
 
             <span style="color: #e67e80;">except</span> BadRequest <span style="color: #e67e80;">as</span> e:
                 logger.info(e)
-                <span style="color: #e67e80;">self</span>.update_schema(<span style="color: #e67e80;">self</span>.table_ref, df)
+                <span style="color: #e67e80;">self</span>.update_schema(df)
                 <span style="color: #e67e80;">self</span>.load(df)
-            <span style="color: #e67e80;">return</span> <span style="color: #83c092;">True</span>
+        <span style="color: #e67e80;">return</span> <span style="color: #83c092;">True</span>
 
 
 </pre>
@@ -1103,19 +1148,19 @@ So, we&rsquo;ll need to update table schema in case there are some column that i
 </div>
 </div>
 
-<div id="outline-container-org0de8ac1" class="outline-2">
-<h2 id="org0de8ac1"><span class="section-number-2">5.</span> ETL&rsquo;s themselves</h2>
+<div id="outline-container-org118a7df" class="outline-2">
+<h2 id="org118a7df"><span class="section-number-2">5.</span> ETL&rsquo;s themselves</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Finally we have everything ready, so we can write our ETL&rsquo;s script which will combine all we defined in previous steps and make it work (hopefully).
 </p>
 </div>
-<div id="outline-container-org70c497e" class="outline-3">
-<h3 id="org70c497e"><span class="section-number-3">5.1.</span> Leads ETL</h3>
+<div id="outline-container-org4cb5149" class="outline-3">
+<h3 id="org4cb5149"><span class="section-number-3">5.1.</span> Leads ETL</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org7838c72" class="outline-4">
-<h4 id="org7838c72"><span class="section-number-4">5.1.1.</span> Yastaff</h4>
+<div id="outline-container-org1b0aff1" class="outline-4">
+<h4 id="org1b0aff1"><span class="section-number-4">5.1.1.</span> Yastaff</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">import</span> json
@@ -1124,23 +1169,23 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 <span style="color: #e67e80;">from</span> setup <span style="color: #e67e80;">import</span> amo20
 <span style="color: #e67e80;">from</span> transform <span style="color: #e67e80;">import</span> Tleads, Transform
 <span style="color: #e67e80;">from</span> load <span style="color: #e67e80;">import</span> LoadWithSchemaUpdate
+<span style="color: #e67e80;">from</span> loguru <span style="color: #e67e80;">import</span> logger
 
 <span style="color: #7fbbb3;">AMO</span> = <span style="color: #a7c080;">'yastaff'</span>
 <span style="color: #7fbbb3;">ENTITY</span> = Tleads
 
-<span style="color: #7fbbb3;">method</span> = Leads(<span style="color: #a7c080;">'yastaff'</span>)  <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">.created_at(from_=)</span>
-<span style="color: #7fbbb3;">extract</span> = Extract(amo20, method)
-
-<span style="color: #7fbbb3;">transform</span> = Transform(AMO, ENTITY)
-
-<span style="color: #7fbbb3;">load</span> = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+<span style="color: #7fbbb3;">method</span> = Leads(<span style="color: #a7c080;">'yastaff'</span>)<span style="color: #859289; font-style: italic;">#</span><span style="color: #859289; font-style: italic;">.created_at(from_="2022-12-15") #</span><span style="color: #ddbc7f; font-weight: bold; font-style: italic;">TODO</span>
 
 <span style="color: #e67e80;">if</span> <span style="color: #83c092;">__name__</span> == <span style="color: #a7c080;">"__main__"</span>:
+    logger.info(f<span style="color: #a7c080;">"starting etl: </span>{ENTITY.truename}<span style="color: #a7c080;">"</span>)
+    extract = Extract(amo20, method)
     extract._all()
 
+    transform = Transform(AMO, ENTITY)
     <span style="color: #e67e80;">if</span> transform._all():
         transform.cleanup()
 
+    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
     load.backup()
     <span style="color: #e67e80;">if</span> load.in_batches():
         load.cleanup()
@@ -1150,12 +1195,12 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 </div>
 </div>
 
-<div id="outline-container-org93eb3c2" class="outline-3">
-<h3 id="org93eb3c2"><span class="section-number-3">5.2.</span> Calls ETL</h3>
+<div id="outline-container-org1a650da" class="outline-3">
+<h3 id="org1a650da"><span class="section-number-3">5.2.</span> Calls ETL</h3>
 <div class="outline-text-3" id="text-5-2">
 </div>
-<div id="outline-container-orge6fdb10" class="outline-4">
-<h4 id="orge6fdb10"><span class="section-number-4">5.2.1.</span> Yastaff</h4>
+<div id="outline-container-orgbb2b15c" class="outline-4">
+<h4 id="orgbb2b15c"><span class="section-number-4">5.2.1.</span> Yastaff</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">import</span> json
@@ -1164,23 +1209,23 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 <span style="color: #e67e80;">from</span> setup <span style="color: #e67e80;">import</span> amo20
 <span style="color: #e67e80;">from</span> transform <span style="color: #e67e80;">import</span> Tcalls, Transform
 <span style="color: #e67e80;">from</span> load <span style="color: #e67e80;">import</span> Load
+<span style="color: #e67e80;">from</span> loguru <span style="color: #e67e80;">import</span> logger
 
 <span style="color: #7fbbb3;">AMO</span> = <span style="color: #a7c080;">'yastaff'</span>
 <span style="color: #7fbbb3;">ENTITY</span> = Tcalls
 
-<span style="color: #7fbbb3;">method</span> = Calls(<span style="color: #a7c080;">'yastaff'</span>)  <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">.created_at(from_=)</span>
-<span style="color: #7fbbb3;">extract</span> = Extract(amo20, method)
-
-<span style="color: #7fbbb3;">transform</span> = Transform(AMO, ENTITY)
-
-<span style="color: #7fbbb3;">load</span> = Load(AMO, ENTITY.truename)
+<span style="color: #7fbbb3;">method</span> = Calls(<span style="color: #a7c080;">'yastaff'</span>)<span style="color: #859289; font-style: italic;">#</span><span style="color: #859289; font-style: italic;">.created_at(from_="2022-12-15")</span>
 
 <span style="color: #e67e80;">if</span> <span style="color: #83c092;">__name__</span> == <span style="color: #a7c080;">"__main__"</span>:
+    logger.info(f<span style="color: #a7c080;">"starting etl: </span>{ENTITY.truename}<span style="color: #a7c080;">"</span>)
+    extract = Extract(amo20, method)
     extract._all()
 
+    transform = Transform(AMO, ENTITY)
     <span style="color: #e67e80;">if</span> transform._all():
         transform.cleanup()
 
+    load = Load(AMO, ENTITY.truename)
     load.backup()
     <span style="color: #e67e80;">if</span> load.in_batches():
         load.cleanup()
@@ -1190,12 +1235,12 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 </div>
 </div>
 
-<div id="outline-container-org0db3779" class="outline-3">
-<h3 id="org0db3779"><span class="section-number-3">5.3.</span> Statuses ETL</h3>
+<div id="outline-container-orgd344f46" class="outline-3">
+<h3 id="orgd344f46"><span class="section-number-3">5.3.</span> Statuses ETL</h3>
 <div class="outline-text-3" id="text-5-3">
 </div>
-<div id="outline-container-org2f0f05c" class="outline-4">
-<h4 id="org2f0f05c"><span class="section-number-4">5.3.1.</span> Yastaff</h4>
+<div id="outline-container-orgb6b2fc7" class="outline-4">
+<h4 id="orgb6b2fc7"><span class="section-number-4">5.3.1.</span> Yastaff</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">import</span> json
@@ -1204,38 +1249,38 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 <span style="color: #e67e80;">from</span> setup <span style="color: #e67e80;">import</span> amo20
 <span style="color: #e67e80;">from</span> transform <span style="color: #e67e80;">import</span> Tstatuses, Transform
 <span style="color: #e67e80;">from</span> load <span style="color: #e67e80;">import</span> Load
+<span style="color: #e67e80;">from</span> loguru <span style="color: #e67e80;">import</span> logger
 
 <span style="color: #7fbbb3;">AMO</span> = <span style="color: #a7c080;">'yastaff'</span>
 <span style="color: #7fbbb3;">ENTITY</span> = Tstatuses
 
-<span style="color: #7fbbb3;">method</span> = Statuses(<span style="color: #a7c080;">'yastaff'</span>)  <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">.created_at(from_=)</span>
-<span style="color: #7fbbb3;">extract</span> = Extract(amo20, method)
-
-<span style="color: #7fbbb3;">transform</span> = Transform(AMO, ENTITY)
-
-<span style="color: #7fbbb3;">load</span> = Load(AMO, ENTITY.truename)
-
+<span style="color: #7fbbb3;">method</span> = Statuses(<span style="color: #a7c080;">'yastaff'</span>)<span style="color: #859289; font-style: italic;">#</span><span style="color: #859289; font-style: italic;">.created_at(from_="2022-12-15")</span>
 <span style="color: #e67e80;">if</span> <span style="color: #83c092;">__name__</span> == <span style="color: #a7c080;">"__main__"</span>:
+    logger.info(f<span style="color: #a7c080;">"starting etl: </span>{ENTITY.truename}<span style="color: #a7c080;">"</span>)
+    extract = Extract(amo20, method)
     extract._all()
 
+    transform = Transform(AMO, ENTITY)
     <span style="color: #e67e80;">if</span> transform._all():
         transform.cleanup()
 
+    load = Load(AMO, ENTITY.truename)
     load.backup()
     <span style="color: #e67e80;">if</span> load.in_batches():
         load.cleanup()
+
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1094c88" class="outline-3">
-<h3 id="org1094c88"><span class="section-number-3">5.4.</span> Users ETL</h3>
+<div id="outline-container-org8489b23" class="outline-3">
+<h3 id="org8489b23"><span class="section-number-3">5.4.</span> Users ETL</h3>
 <div class="outline-text-3" id="text-5-4">
 </div>
-<div id="outline-container-org3054ccc" class="outline-4">
-<h4 id="org3054ccc"><span class="section-number-4">5.4.1.</span> Yastaff</h4>
+<div id="outline-container-org5424b4d" class="outline-4">
+<h4 id="org5424b4d"><span class="section-number-4">5.4.1.</span> Yastaff</h4>
 <div class="outline-text-4" id="text-5-4-1">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">import</span> json
@@ -1244,23 +1289,23 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 <span style="color: #e67e80;">from</span> setup <span style="color: #e67e80;">import</span> amo20
 <span style="color: #e67e80;">from</span> transform <span style="color: #e67e80;">import</span> Tusers, Transform
 <span style="color: #e67e80;">from</span> load <span style="color: #e67e80;">import</span> Load
+<span style="color: #e67e80;">from</span> loguru <span style="color: #e67e80;">import</span> logger
 
 <span style="color: #7fbbb3;">AMO</span> = <span style="color: #a7c080;">'yastaff'</span>
 <span style="color: #7fbbb3;">ENTITY</span> = Tusers
 
 <span style="color: #7fbbb3;">method</span> = Users(<span style="color: #a7c080;">'yastaff'</span>)  <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">.created_at(from_=)</span>
-<span style="color: #7fbbb3;">extract</span> = Extract(amo20, method)
-
-<span style="color: #7fbbb3;">transform</span> = Transform(AMO, ENTITY)
-
-<span style="color: #7fbbb3;">load</span> = Load(AMO, ENTITY.truename)
 
 <span style="color: #e67e80;">if</span> <span style="color: #83c092;">__name__</span> == <span style="color: #a7c080;">"__main__"</span>:
+    logger.info(f<span style="color: #a7c080;">"starting etl: </span>{ENTITY.truename}<span style="color: #a7c080;">"</span>)
+    extract = Extract(amo20, method)
     extract._all()
 
+    transform = Transform(AMO, ENTITY)
     <span style="color: #e67e80;">if</span> transform._all():
         transform.cleanup()
 
+    load = Load(AMO, ENTITY.truename)
     load.backup()
     <span style="color: #e67e80;">if</span> load.in_batches():
         load.cleanup()
@@ -1270,39 +1315,39 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 </div>
 </div>
 
-
-
-<div id="outline-container-org582bdd7" class="outline-3">
-<h3 id="org582bdd7"><span class="section-number-3">5.5.</span> Pipelines ETL</h3>
+<div id="outline-container-orgbbea09f" class="outline-3">
+<h3 id="orgbbea09f"><span class="section-number-3">5.5.</span> Pipelines ETL</h3>
 <div class="outline-text-3" id="text-5-5">
 </div>
-<div id="outline-container-org6bc2363" class="outline-4">
-<h4 id="org6bc2363"><span class="section-number-4">5.5.1.</span> Yastaff</h4>
+<div id="outline-container-org4f8d110" class="outline-4">
+<h4 id="org4f8d110"><span class="section-number-4">5.5.1.</span> Yastaff</h4>
 <div class="outline-text-4" id="text-5-5-1">
 <div class="org-src-container">
 <pre class="src src-jupyter-python"><span style="color: #e67e80;">import</span> json
 <span style="color: #e67e80;">from</span> extract <span style="color: #e67e80;">import</span> Extract
 <span style="color: #e67e80;">from</span> amo.entities <span style="color: #e67e80;">import</span> Pipelines
 <span style="color: #e67e80;">from</span> setup <span style="color: #e67e80;">import</span> amo20
-<span style="color: #e67e80;">from</span> transform <span style="color: #e67e80;">import</span> Tpipelines, Transform
+<span style="color: #e67e80;">from</span> transform <span style="color: #e67e80;">import</span> Tpipelines, TransformPipelines
 <span style="color: #e67e80;">from</span> load <span style="color: #e67e80;">import</span> Load
+<span style="color: #e67e80;">from</span> loguru <span style="color: #e67e80;">import</span> logger
 
 <span style="color: #7fbbb3;">AMO</span> = <span style="color: #a7c080;">'yastaff'</span>
 <span style="color: #7fbbb3;">ENTITY</span> = Tpipelines
 
 <span style="color: #7fbbb3;">method</span> = Pipelines(<span style="color: #a7c080;">'yastaff'</span>)  <span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">.created_at(from_=)</span>
-<span style="color: #7fbbb3;">extract</span> = Extract(amo20, method)
 
-<span style="color: #7fbbb3;">transform</span> = Transform(AMO, ENTITY)
 
-<span style="color: #7fbbb3;">load</span> = Load(AMO, ENTITY.truename)
 
 <span style="color: #e67e80;">if</span> <span style="color: #83c092;">__name__</span> == <span style="color: #a7c080;">"__main__"</span>:
+    logger.info(f<span style="color: #a7c080;">"starting etl: </span>{ENTITY.truename}<span style="color: #a7c080;">"</span>)
+    extract = Extract(amo20, method)
     extract._all()
 
+    transform = TransformPipelines(AMO, ENTITY)
     <span style="color: #e67e80;">if</span> transform._all():
         transform.cleanup()
 
+    load = Load(AMO, ENTITY.truename)
     load.backup()
     <span style="color: #e67e80;">if</span> load.in_batches():
         load.cleanup()
@@ -1313,8 +1358,8 @@ Finally we have everything ready, so we can write our ETL&rsquo;s script which w
 </div>
 </div>
 
-<div id="outline-container-org74f9f3f" class="outline-2">
-<h2 id="org74f9f3f"><span class="section-number-2">6.</span> Bash to rule them all</h2>
+<div id="outline-container-orge6c56b6" class="outline-2">
+<h2 id="orge6c56b6"><span class="section-number-2">6.</span> Shell to rule them all</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Now, when we have defined ETL&rsquo;s for all the entities, it is time to automate the process.
@@ -1323,12 +1368,27 @@ Airflow is good when you have the full orchestra of pipelines, but since we only
 For that we&rsquo;ll create a simple script, which then we&rsquo;ll pass to crontab.
 </p>
 </div>
-<div id="outline-container-orgefbadf9" class="outline-3">
-<h3 id="orgefbadf9"><span class="section-number-3">6.1.</span> Yastaff ETL</h3>
+<div id="outline-container-org3f186ee" class="outline-3">
+<h3 id="org3f186ee"><span class="section-number-3">6.1.</span> Yastaff ETL</h3>
 <div class="outline-text-3" id="text-6-1">
+<p>
+to do  on nix
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #859289; font-style: italic;">#</span><span style="color: #859289; font-style: italic;">!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/</span><span style="color: #e67e80;">python</span><span style="color: #859289; font-style: italic;"> #</span><span style="color: #ddbc7f; font-weight: bold; font-style: italic;">TODO</span>
+<span style="color: #a7c080;">cd</span> /home/georgy/Projects/python/amo20
+</pre>
+</div>
+
+
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #859289; font-style: italic;">#</span><span style="color: #859289; font-style: italic;">!/home/analytics/amo20/venv/bin/</span><span style="color: #e67e80;">python</span>
-
+<span style="color: #a7c080;">cd</span> /home/analytics/amo20/
+<span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">python yastaff_etl_leads.py</span>
+<span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">python yastaff_etl_calls.py</span>
+python yastaff_etl_statuses.py
+<span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">python yastaff_etl_users.py</span>
+<span style="color: #859289; font-style: italic;"># </span><span style="color: #859289; font-style: italic;">python yastaff_etl_pipelines.py</span>
 </pre>
 </div>
 </div>
@@ -1337,7 +1397,7 @@ For that we&rsquo;ll create a simple script, which then we&rsquo;ll pass to cron
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Georgy</p>
-<p class="date">Created: 2023-01-21 Sat 23:22</p>
+<p class="date">Created: 2023-01-23 Mon 14:29</p>
 </div>
 </body>
 </html>

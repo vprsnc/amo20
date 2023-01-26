@@ -53,3 +53,27 @@ class Extract:
             counter += 1
             next_page = self.get_page(next_page, counter)
         logger.success(f"{counter} pages downloaded!")
+
+class ExtractCalls(Extract):
+
+    def __init__(self, tokens, entity):
+        access_token = tokens.provide_access()
+        header = {"Authorization": "Bearer " + access_token}
+        self.session.headers.update(header)
+        # And to prevent amo from dropping connection:
+        self.session.mount('https://', HTTPAdapter(max_retries=5))
+        self.basename = entity.basename
+        self.truename = entity.truename        # name for writing and further pr...
+        self.amo = tokens.subdomain
+        self.url1 = entity.url1
+        self.url2 = entity.url2
+        self.url3 = entity.url3
+
+    def _all(self):
+        counter = 1
+        for u in [self.url1, self.url2, self.url3]:
+            next_page = self.get_page(u, counter)
+            while next_page is not None:
+                counter += 1
+                next_page = self.get_page(next_page, counter)
+        logger.success(f"{counter} pages downloaded!")

@@ -126,7 +126,7 @@ amo20.refresh()
 #+end_src
 
 ** Amo api methods
-
+*** Base
 OK, let's put away our *etl* file for the moment and return to setting up things.
 Next thing we need to do is specify method we're going to call *amocrm* api.
 
@@ -222,16 +222,17 @@ class Statuses(Events):
 #+end_src
 
 *** Notes
-Notes are sub-entity of [[Leads]], while calls are sub-type of Notes.
+Notes are sub-entity of [[Leads]], companies, and contact, while calls are sub-type of Notes.
+So we need to extract calls from the three entities.
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle amo/entities.py
-class Notes(Leads):
+class Notes(Base):
     truename = "notes"
     basename = "notes"
     sub_entity = "/notes"
 
-    def __init__(self, subdomain):
-        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity\
+    def __init__(self, subdomain, entity):
+        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + entity\
             + self.sub_entity + "?"
 #+end_src
 
@@ -239,12 +240,20 @@ class Notes(Leads):
 class Calls(Notes):
     truename = "calls"
     sub_type = "?filter[note_type]=call_in"
+    entity1 = "leads"
+    entity2 = "companies"
+    entity3 = "contacts"
 
 
     def __init__(self, subdomain):
-        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity\
+        self.url1 = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity1\
             + self.sub_entity + self.sub_type
 
+        self.url2 = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity2\
+            + self.sub_entity + self.sub_type
+
+        self.url3 = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity3\
+            + self.sub_entity + self.sub_type
 #+end_src
 
 *** Pipelines
@@ -337,6 +346,33 @@ class Extract:
             next_page = self.get_page(next_page, counter)
         logger.success(f"{counter} pages downloaded!")
 
+#+end_src
+
+And since calls are subentities for the three (sic!) entities, we need a different class for them
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle extract.py
+class ExtractCalls(Extract):
+
+    def __init__(self, tokens, entity):
+        access_token = tokens.provide_access()
+        header = {"Authorization": "Bearer " + access_token}
+        self.session.headers.update(header)
+        # And to prevent amo from dropping connection:
+        self.session.mount('https://', HTTPAdapter(max_retries=5))
+        self.basename = entity.basename
+        self.truename = entity.truename        # name for writing and further pr...
+        self.amo = tokens.subdomain
+        self.url1 = entity.url1
+        self.url2 = entity.url2
+        self.url3 = entity.url3
+
+    def _all(self):
+        counter = 1
+        for u in [self.url1, self.url2, self.url3]:
+            next_page = self.get_page(u, counter)
+            while next_page is not None:
+                counter += 1
+                next_page = self.get_page(next_page, counter)
+        logger.success(f"{counter} pages downloaded!")
 #+end_src
 
 ** Test
@@ -795,11 +831,14 @@ if __name__ == "__main__":
 #+end_src
 
 ** Calls ETL
+As it stated before, calls are sub-type for notes, which itself sub-entity for three entities:
++ leads
++ contact
++ companies
 *** Yastaff
-
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle yastaff_etl_calls.py
 import json
-from extract import Extract
+from extract import ExtractCalls
 from amo.entities import Calls
 from setup import amo20
 from transform import Tcalls, Transform
@@ -808,12 +847,10 @@ from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tcalls
-
 method = Calls('yastaff')#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
+    extract = ExtractCalls(amo20, method)
     extract._all()
 
     transform = Transform(AMO, ENTITY)
@@ -932,17 +969,27 @@ For that we'll create a simple script, which then we'll pass to crontab.
 ** Yastaff ETL
 to do  on nix
 #+begin_src shell
-#!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
-cd /home/georgy/Projects/python/amo20
+#!/home/analytics/amo20/venv/bin/python
+cd /home/analytics/amo20/
 #+end_src
 
 
 #+begin_src shell :tangle shells/yastaff.sh
-#!/home/analytics/amo20/venv/bin/python
-cd /home/analytics/amo20/
+#!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
+cd /home/georgy/Projects/python/amo20
 # python yastaff_etl_leads.py
-# python yastaff_etl_calls.py
-python yastaff_etl_statuses.py
+python yastaff_etl_calls.py
+# python yastaff_etl_statuses.py
 # python yastaff_etl_users.py
 # python yastaff_etl_pipelines.py
 #+end_src
+
+** To run manually
+You need to log on to the server and
+
+#+begin_src shell
+cd amo20
+sh shells/yastaff.sh
+#+end_src
+
+Instead of yastaff you need to use actual *amo* name.

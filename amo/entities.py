@@ -60,22 +60,31 @@ class Statuses(Events):
         self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity\
             + self.sub_type
 
-class Notes(Leads):
+class Notes(Base):
     truename = "notes"
     basename = "notes"
     sub_entity = "/notes"
 
-    def __init__(self, subdomain):
-        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity\
+    def __init__(self, subdomain, entity):
+        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + entity\
             + self.sub_entity + "?"
 
 class Calls(Notes):
     truename = "calls"
     sub_type = "?filter[note_type]=call_in"
+    entity1 = "leads"
+    entity2 = "companies"
+    entity3 = "contacts"
 
 
     def __init__(self, subdomain):
-        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity\
+        self.url1 = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity1\
+            + self.sub_entity + self.sub_type
+
+        self.url2 = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity2\
+            + self.sub_entity + self.sub_type
+
+        self.url3 = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity3\
             + self.sub_entity + self.sub_type
 
 class Pipelines(Leads):
