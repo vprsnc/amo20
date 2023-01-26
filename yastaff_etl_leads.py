@@ -9,7 +9,7 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tleads
 
-method = Leads('yastaff')#.created_at(from_="2022-12-15") #TODO
+method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")

@@ -1,19 +1,17 @@
 import json
-from extract import Extract
-from amo.entities import Users
-from setup import amo20
-from transform import Tusers, Transform
+from extract import ExtractCalls
+from amo.entities import Calls
+from setup import amo21
+from transform import Tcalls, Transform
 from load import Load
 from loguru import logger
 
-AMO = 'yastaff'
-ENTITY = Tusers
-
-method = Users(AMO)  # .created_at(from_=)
+AMO = 'orps'
+ENTITY = Tcalls
+method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
+    extract = ExtractCalls(amo21, method)
     extract._all()
 
     transform = Transform(AMO, ENTITY)

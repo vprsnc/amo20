@@ -813,11 +813,41 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tleads
 
-method = Leads('yastaff')#.created_at(from_="2022-12-15") #TODO
+method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+
+    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
+*** Orps
+#+begin_src jupyter-python :session localhost :kernel amo20 :tangle orps_etl_leads.py
+import json
+from extract import Extract
+from amo.entities import Leads
+from setup import amo21
+from transform import Tleads, Transform
+from load import LoadWithSchemaUpdate
+from loguru import logger
+
+AMO = 'orps'
+ENTITY = Tleads
+
+method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
+
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo21, method)
     extract._all()
 
     transform = Transform(AMO, ENTITY)
@@ -847,10 +877,38 @@ from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tcalls
-method = Calls('yastaff')#.created_at(from_="2022-12-15")
+method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
     extract = ExtractCalls(amo20, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+
+    load = Load(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
+*** Orps
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle orps_etl_calls.py
+import json
+from extract import ExtractCalls
+from amo.entities import Calls
+from setup import amo21
+from transform import Tcalls, Transform
+from load import Load
+from loguru import logger
+
+AMO = 'orps'
+ENTITY = Tcalls
+method = Calls(AMO)#.created_at(from_="2022-12-15")
+
+if __name__ == "__main__":
+    extract = ExtractCalls(amo21, method)
     extract._all()
 
     transform = Transform(AMO, ENTITY)
@@ -878,10 +936,41 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tstatuses
 
-method = Statuses('yastaff')#.created_at(from_="2022-12-15")
+method = Statuses(AMO)#.created_at(from_="2022-12-15")
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+
+    load = Load(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+
+#+end_src
+
+*** Orps
+
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle orps_etl_statuses.py
+import json
+from extract import Extract
+from amo.entities import Statuses
+from setup import amo2
+from transform import Tstatuses, Transform
+from load import Load
+from loguru import logger
+
+AMO = 'orps'
+ENTITY = Tstatuses
+
+method = Statuses(AMO)#.created_at(from_="2022-12-15")
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo21, method)
     extract._all()
 
     transform = Transform(AMO, ENTITY)
@@ -897,7 +986,6 @@ if __name__ == "__main__":
 
 ** Users ETL
 *** Yastaff
-
 #+begin_src jupyter-python :session localhost :kernel amo20 :tangle yastaff_etl_users.py
 import json
 from extract import Extract
@@ -910,7 +998,7 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tusers
 
-method = Users('yastaff')  # .created_at(from_=)
+method = Users(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
@@ -927,9 +1015,38 @@ if __name__ == "__main__":
         load.cleanup()
 #+end_src
 
+*** Orps
+#+begin_src jupyter-python :session localhost :kernel amo20 :tangle orps_etl_users.py
+import json
+from extract import Extract
+from amo.entities import Users
+from setup import amo21
+from transform import Tusers, Transform
+from load import Load
+from loguru import logger
+
+AMO = 'orps'
+ENTITY = Tusers
+
+method = Users(AMO)  # .created_at(from_=)
+
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo21, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+
+    load = Load(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
 ** Pipelines ETL
 *** Yastaff
-
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle yastaff_etl_pipelines.py
 import json
 from extract import Extract
@@ -942,7 +1059,7 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tpipelines
 
-method = Pipelines('yastaff')  # .created_at(from_=)
+method = Pipelines(AMO)  # .created_at(from_=)
 
 
 
@@ -961,11 +1078,42 @@ if __name__ == "__main__":
         load.cleanup()
 #+end_src
 
+*** Orps
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle orps_etl_pipelines.py
+import json
+from extract import Extract
+from amo.entities import Pipelines
+from setup import amo21
+from transform import Tpipelines, TransformPipelines
+from load import Load
+from loguru import logger
+
+AMO = 'orps'
+ENTITY = Tpipelines
+
+method = Pipelines(AMO)  # .created_at(from_=)
+
+
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo21, method)
+    extract._all()
+
+    transform = TransformPipelines(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+
+    load = Load(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
 * Shell to rule them all
 Now, when we have defined ETL's for all the entities, it is time to automate the process.
 Two most common tools for that are cron jobs and Airflow.
 Airflow is good when you have the full orchestra of pipelines, but since we only have few processes, we'll use cron.
-For that we'll create a simple script, which then we'll pass to crontab.
+For that we'll create a simple script, which then we'll pass to cron tab.
 ** Yastaff ETL
 to do  on nix
 #+begin_src shell
@@ -982,6 +1130,24 @@ python yastaff_etl_calls.py
 # python yastaff_etl_statuses.py
 # python yastaff_etl_users.py
 # python yastaff_etl_pipelines.py
+#+end_src
+
+** Orps ETL
+to do  on nix
+#+begin_src shell
+#!/home/analytics/amo20/venv/bin/python
+cd /home/analytics/amo20/
+#+end_src
+
+
+#+begin_src shell :tangle shells/orps.sh
+#!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
+cd /home/georgy/Projects/python/amo20
+python orps_etl_leads.py
+# python orps_etl_calls.py
+# python orps_etl_statuses.py
+# python orps_etl_users.py
+# python orps_etl_pipelines.py
 #+end_src
 
 ** To run manually

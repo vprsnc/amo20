@@ -9,7 +9,7 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tpipelines
 
-method = Pipelines('yastaff')  # .created_at(from_=)
+method = Pipelines(AMO)  # .created_at(from_=)
 
 
 

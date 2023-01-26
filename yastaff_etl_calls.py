@@ -8,7 +8,7 @@ from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tcalls
-method = Calls('yastaff')#.created_at(from_="2022-12-15")
+method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
     extract = ExtractCalls(amo20, method)

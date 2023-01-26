@@ -9,7 +9,7 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tstatuses
 
-method = Statuses('yastaff')#.created_at(from_="2022-12-15")
+method = Statuses(AMO)#.created_at(from_="2022-12-15")
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
