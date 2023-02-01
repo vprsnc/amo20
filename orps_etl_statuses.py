@@ -2,7 +2,7 @@ import json
 from datetime import datetime #TODO
 from extract import Extract
 from amo.entities import Statuses
-from setup import amo2
+from setup import amo21
 from transform import Tstatuses, Transform
 from load import Load
 from loguru import logger
