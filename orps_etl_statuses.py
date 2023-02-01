@@ -14,6 +14,9 @@ if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo21, method)
     extract._all()
+    
+    with open("yastaff_lastdate_statuses.txt", "w") as f: # TODO read lastdate
+        f.write(str(datetime.now()))
 
     transform = Transform(AMO, ENTITY)
     if transform._all():

@@ -12,7 +12,6 @@ ENTITY = Tpipelines
 method = Pipelines(AMO)  # .created_at(from_=)
 
 
-
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
