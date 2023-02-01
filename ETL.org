@@ -934,7 +934,9 @@ if __name__ == "__main__":
 *** Yastaff
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle yastaff_etl_statuses.py
+import datetime
 import json
+from dateutil import parser
 from extract import Extract
 from amo.entities import Statuses
 from setup import amo20
@@ -942,14 +944,23 @@ from transform import Tstatuses, Transform
 from load import Load
 from loguru import logger
 
+
 AMO = 'yastaff'
 ENTITY = Tstatuses
+
+with open("yastaff_lastdate_statuses.txt", "r") as f:
+    LAST_DATE = str(
+       datetime.timestamp(parser.parse(f.read()))
+   ).split('.', maxsplit=1)[0]
 
 method = Statuses(AMO)#.created_at(from_="2022-12-15")
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
     extract._all()
+
+    with open("yastaff_lastdate_statuses.txt", "w") as f:
+        f.write(str(datetime.now()))
 
     transform = Transform(AMO, ENTITY)
     if transform._all():
