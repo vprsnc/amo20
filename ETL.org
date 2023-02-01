@@ -953,7 +953,7 @@ with open("yastaff_lastdate_statuses.txt", "r") as f:
        datetime.timestamp(parser.parse(f.read()))
    ).split('.', maxsplit=1)[0]
 
-method = Statuses(AMO)#.created_at(from_="2022-12-15")
+method = Statuses(AMO).created_at(from_=LAST_DATE)
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
