@@ -1,6 +1,6 @@
-import datetime
 import json
 from dateutil import parser
+from datetime import datetime
 from extract import Extract
 from amo.entities import Statuses
 from setup import amo20

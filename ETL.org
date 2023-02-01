@@ -934,9 +934,9 @@ if __name__ == "__main__":
 *** Yastaff
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle yastaff_etl_statuses.py
-import datetime
 import json
 from dateutil import parser
+from datetime import datetime
 from extract import Extract
 from amo.entities import Statuses
 from setup import amo20
@@ -977,6 +977,7 @@ if __name__ == "__main__":
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle orps_etl_statuses.py
 import json
+from datetime import datetime #TODO
 from extract import Extract
 from amo.entities import Statuses
 from setup import amo2
