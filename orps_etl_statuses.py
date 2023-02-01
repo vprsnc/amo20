@@ -23,6 +23,6 @@ if __name__ == "__main__":
         transform.cleanup()
 
     load = Load(AMO, ENTITY.truename)
-    load.backup()
+    # load.backup()
     if load.in_batches():
         load.cleanup()
