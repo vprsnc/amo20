@@ -1137,36 +1137,36 @@ For that we'll create a simple script, which then we'll pass to cron tab.
 ** Yastaff ETL
 to do  on nix
 #+begin_src shell
-#!/home/analytics/amo20/venv/bin/python
-cd /home/analytics/amo20/
+#!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
+cd /home/georgy/Projects/python/amo20
 #+end_src
 
 
 #+begin_src shell :tangle shells/yastaff.sh
-#!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
-cd /home/georgy/Projects/python/amo20
-# python yastaff_etl_leads.py
+#!/home/analytics/amo20/venv/bin/python
+cd /home/analytics/amo20/
+python yastaff_etl_leads.py
 python yastaff_etl_calls.py
-# python yastaff_etl_statuses.py
-# python yastaff_etl_users.py
-# python yastaff_etl_pipelines.py
+python yastaff_etl_statuses.py
+python yastaff_etl_users.py
+python yastaff_etl_pipelines.py
 #+end_src
 
 ** Orps ETL
 to do  on nix
 #+begin_src shell
-#!/home/analytics/amo20/venv/bin/python
-cd /home/analytics/amo20/
+#!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
+cd /home/georgy/Projects/python/amo20
 #+end_src
 
 
 #+begin_src shell :tangle shells/orps.sh
-#!/nix/store/j4nl4k97148p6kdkh2g2rvb3ab8847vf-python3-3.7.12-env/bin/python #TODO
-cd /home/georgy/Projects/python/amo20
-# python orps_etl_leads.py
-# python orps_etl_calls.py
-# python orps_etl_statuses.py
-# python orps_etl_users.py
+#!/home/analytics/amo20/venv/bin/python
+cd /home/analytics/amo20/
+python orps_etl_leads.py
+python orps_etl_calls.py
+python orps_etl_statuses.py
+python orps_etl_users.py
 python orps_etl_pipelines.py
 #+end_src
 
