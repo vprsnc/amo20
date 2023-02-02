@@ -818,8 +818,14 @@ from transform import Tleads, Transform
 from load import LoadWithSchemaUpdate
 from loguru import logger
 
+
 AMO = 'yastaff'
 ENTITY = Tleads
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
 
 method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
 
@@ -850,6 +856,11 @@ from loguru import logger
 
 AMO = 'orps'
 ENTITY = Tleads
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
 
 method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
 
@@ -886,9 +897,16 @@ from loguru import logger
 
 AMO = 'yastaff'
 ENTITY = Tcalls
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
     extract = ExtractCalls(amo20, method)
     extract._all()
 
@@ -914,9 +932,16 @@ from loguru import logger
 
 AMO = 'orps'
 ENTITY = Tcalls
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
     extract = ExtractCalls(amo21, method)
     extract._all()
 
@@ -951,7 +976,14 @@ ENTITY = Tstatuses
 with open("yastaff_lastdate_statuses.txt", "r") as f:
     LAST_DATE = f.read()
 
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
+
 method = Statuses(AMO).created_at(from_=LAST_DATE)
+
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
@@ -989,7 +1021,14 @@ ENTITY = Tstatuses
 with open("yastaff_lastdate_statuses.txt", "r") as f:
     LAST_DATE = f.read()
 
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 method = Statuses(AMO).created_at(LAST_DATE)
+
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo21, method)
@@ -1023,6 +1062,12 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tusers
 
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 method = Users(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":
@@ -1052,6 +1097,12 @@ from loguru import logger
 
 AMO = 'orps'
 ENTITY = Tusers
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 
 method = Users(AMO)  # .created_at(from_=)
 
@@ -1084,8 +1135,13 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tpipelines
 
-method = Pipelines(AMO)  # .created_at(from_=)
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
 
+
+method = Pipelines(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
@@ -1114,6 +1170,11 @@ from loguru import logger
 
 AMO = 'orps'
 ENTITY = Tpipelines
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
 
 method = Pipelines(AMO)  # .created_at(from_=)
 
