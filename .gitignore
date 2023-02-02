@@ -14,3 +14,4 @@ nixenv/
 temp_data/
 tokens/
 setup.py
+*_lastdate_*
