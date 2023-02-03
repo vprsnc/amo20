@@ -9,6 +9,11 @@ from loguru import logger
 AMO = 'orps'
 ENTITY = Tpipelines
 
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 method = Pipelines(AMO)  # .created_at(from_=)
 
 

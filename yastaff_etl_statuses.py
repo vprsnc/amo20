@@ -13,11 +13,16 @@ AMO = 'yastaff'
 ENTITY = Tstatuses
 
 with open("yastaff_lastdate_statuses.txt", "r") as f:
-    LAST_DATE = str(
-       datetime.timestamp(parser.parse(f.read()))
-   ).split('.', maxsplit=1)[0]
+    LAST_DATE = f.read()
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 
 method = Statuses(AMO).created_at(from_=LAST_DATE)
+
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)

@@ -9,6 +9,12 @@ from loguru import logger
 AMO = 'orps'
 ENTITY = Tusers
 
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
+
 method = Users(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":

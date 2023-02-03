@@ -6,8 +6,14 @@ from transform import Tleads, Transform
 from load import LoadWithSchemaUpdate
 from loguru import logger
 
+
 AMO = 'yastaff'
 ENTITY = Tleads
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
 
 method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
 

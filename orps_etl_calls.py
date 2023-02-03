@@ -8,9 +8,16 @@ from loguru import logger
 
 AMO = 'orps'
 ENTITY = Tcalls
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
 method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
     extract = ExtractCalls(amo21, method)
     extract._all()
 

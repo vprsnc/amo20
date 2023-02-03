@@ -9,8 +9,13 @@ from loguru import logger
 AMO = 'yastaff'
 ENTITY = Tpipelines
 
-method = Pipelines(AMO)  # .created_at(from_=)
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
 
+
+method = Pipelines(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")
