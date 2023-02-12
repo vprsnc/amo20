@@ -21,10 +21,10 @@ logger.add(
 )
 
 
-print(LAST_DATE)
 method = Statuses(AMO).created_at(from_=LAST_DATE)
 
 if __name__ == "__main__":
+    print(LAST_DATE)
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
     extract._all()
