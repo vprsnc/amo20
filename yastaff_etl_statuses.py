@@ -21,6 +21,7 @@ logger.add(
 )
 
 
+print(LAST_DATE)
 method = Statuses(AMO).created_at(from_=LAST_DATE)
 
 if __name__ == "__main__":
