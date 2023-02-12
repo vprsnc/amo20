@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import date, timedelta
 import pandas as pd
 from google.cloud import bigquery as bq
 from google.api_core.exceptions import BadRequest
@@ -12,9 +12,8 @@ class Load:
             './tokens/oddjob-db-2007-759fe782b144.json'
         self.client = bq.Client()
         self.path = f"temp_data/{amo}/{entity}_transformed/"
-        self.date = str(datetime.now()).replace(" ", "-")\
-                                       .replace(":", "-")\
-                                       .split(".")[0]
+        self.date = str(date.today())
+        self.yesterday = str(date.today() - timedelta(days=1))
         self.files_num = sum(1 for file in os.listdir(self.path))
         self.file_list = [self.path + f for f in os.listdir(self.path)]
 
@@ -23,6 +22,9 @@ class Load:
 
         self.table_backup = self.client.dataset(
             f"{amo}_oddjob").table(f"dw_amocrm_{entity}_{self.date}")
+        self.table_backup_old = self.client.dataset(
+            f"{amo}_oddjob").table(f"dw_amocrm_{entity}_{self.yesterday}")
+
         self.job_config = bq.LoadJobConfig(autodetect=True)
 
 
@@ -32,6 +34,7 @@ class Load:
         )
         logger.success("Table successfully backed up!")
         self.client.delete_table(self.table_ref)
+        self.client.delete_table(self.table_backup_old)
         self.client.create_table(self.table_ref)
 
 
