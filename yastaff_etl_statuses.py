@@ -24,7 +24,7 @@ logger.add(
 method = Statuses(AMO).created_at(from_=LAST_DATE)
 
 if __name__ == "__main__":
-    print(method)
+    print(method.__dict__)
     logger.info(f"starting etl: {ENTITY.truename}")
     extract = Extract(amo20, method)
     extract._all()
