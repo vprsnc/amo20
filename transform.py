@@ -89,6 +89,102 @@ class Tleads(Base):
             return content
         return content
 
+class Tcontacts(Base):
+    truename = "contacts"
+
+    def __init__(self, dict_):
+        self.id_ = dict_["id"]
+        self.name = dict_["name"]
+        self.responsible_user_id = dict_["responsible_user_id"]
+        self.group_id = dict_["group_id"]
+        self.created_by = dict_["created_by"]
+        self.updated_by = dict_["updated_by"]
+        self.created_at = dict_["created_at"]
+        self.updated_at = dict_["updated_at"]
+        self.closed_at = dict_["closed_at"]
+        self.closest_task_at = dict_["closest_task_at"]
+        self.is_deleted = dict_["is_deleted"]
+        self.score = dict_["score"]
+        self.account_id = dict_["account_id"]
+        self.custom_fields_values = dict_["custom_fields_values"]
+
+
+    def is_english(self, s):
+        try:
+            s.encode(encoding='utf-8').decode('ascii')
+        except UnicodeDecodeError:
+            return False
+        else:
+            return True
+
+
+    def to_dict(self):
+        content = self.__dict__
+        if content["custom_fields_values"] is not None:
+            for cf in content["custom_fields_values"]:
+                field_name = ''.join(
+                    c for c in to_latin(cf["field_name"], lang_code='ru')
+                    if c.isalpha() or c.isdigit()
+                ).lower()
+                while field_name in content.keys():
+                    field_name += "1"
+                if not field_name[0].isalpha(): # Check if name starts with chr
+                    field_name = "alpha" + field_name
+                field_value = ",".join(str(v["value"]) for v in cf["values"])
+                if self.is_english(field_name):
+                    content[field_name] = field_value
+            content.pop("custom_fields_values")
+            return content
+        return content
+
+class Tcompanies(Base):
+    truename = "companies"
+
+    def __init__(self, dict_):
+        self.id_ = dict_["id"]
+        self.name = dict_["name"]
+        self.responsible_user_id = dict_["responsible_user_id"]
+        self.group_id = dict_["group_id"]
+        self.created_by = dict_["created_by"]
+        self.updated_by = dict_["updated_by"]
+        self.created_at = dict_["created_at"]
+        self.updated_at = dict_["updated_at"]
+        self.closed_at = dict_["closed_at"]
+        self.closest_task_at = dict_["closest_task_at"]
+        self.is_deleted = dict_["is_deleted"]
+        self.score = dict_["score"]
+        self.account_id = dict_["account_id"]
+        self.custom_fields_values = dict_["custom_fields_values"]
+
+
+    def is_english(self, s):
+        try:
+            s.encode(encoding='utf-8').decode('ascii')
+        except UnicodeDecodeError:
+            return False
+        else:
+            return True
+
+
+    def to_dict(self):
+        content = self.__dict__
+        if content["custom_fields_values"] is not None:
+            for cf in content["custom_fields_values"]:
+                field_name = ''.join(
+                    c for c in to_latin(cf["field_name"], lang_code='ru')
+                    if c.isalpha() or c.isdigit()
+                ).lower()
+                while field_name in content.keys():
+                    field_name += "1"
+                if not field_name[0].isalpha(): # Check if name starts with chr
+                    field_name = "alpha" + field_name
+                field_value = ",".join(str(v["value"]) for v in cf["values"])
+                if self.is_english(field_name):
+                    content[field_name] = field_value
+            content.pop("custom_fields_values")
+            return content
+        return content
+
 class Tevents(Base):
     truename = "events"
 

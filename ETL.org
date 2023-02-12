@@ -203,6 +203,42 @@ class Leads(Base):
 
 #+end_src
 
+*** Contacts
+
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle amo/entities.py
+class Contacts(Base):
+    truename = "contacts"
+    basename = "contacts"
+    entity = "contacts"
+
+
+    def __init__(self, subdomain):
+        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity + "?"
+
+
+    def filter(self):
+        pass
+
+#+end_src
+
+*** Companies
+
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle amo/entities.py
+class Companies(Base):
+    truename = "companies"
+    basename = "companies"
+    entity = "companies"
+
+
+    def __init__(self, subdomain):
+        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity + "?"
+
+
+    def filter(self):
+        pass
+
+#+end_src
+
 *** Statuses
 By statuses we mean here ~lead_status_changed~ entity which is sub-type for events.
 
@@ -524,6 +560,114 @@ class Tleads(Base):
 
 #+end_src
 
+** Transform Contacts
+The sames thing about custom fields as for leads
+
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle transform.py
+class Tcontacts(Base):
+    truename = "contacts"
+
+    def __init__(self, dict_):
+        self.id_ = dict_["id"]
+        self.name = dict_["name"]
+        self.responsible_user_id = dict_["responsible_user_id"]
+        self.group_id = dict_["group_id"]
+        self.created_by = dict_["created_by"]
+        self.updated_by = dict_["updated_by"]
+        self.created_at = dict_["created_at"]
+        self.updated_at = dict_["updated_at"]
+        self.closed_at = dict_["closed_at"]
+        self.closest_task_at = dict_["closest_task_at"]
+        self.is_deleted = dict_["is_deleted"]
+        self.score = dict_["score"]
+        self.account_id = dict_["account_id"]
+        self.custom_fields_values = dict_["custom_fields_values"]
+
+
+    def is_english(self, s):
+        try:
+            s.encode(encoding='utf-8').decode('ascii')
+        except UnicodeDecodeError:
+            return False
+        else:
+            return True
+
+
+    def to_dict(self):
+        content = self.__dict__
+        if content["custom_fields_values"] is not None:
+            for cf in content["custom_fields_values"]:
+                field_name = ''.join(
+                    c for c in to_latin(cf["field_name"], lang_code='ru')
+                    if c.isalpha() or c.isdigit()
+                ).lower()
+                while field_name in content.keys():
+                    field_name += "1"
+                if not field_name[0].isalpha(): # Check if name starts with chr
+                    field_name = "alpha" + field_name
+                field_value = ",".join(str(v["value"]) for v in cf["values"])
+                if self.is_english(field_name):
+                    content[field_name] = field_value
+            content.pop("custom_fields_values")
+            return content
+        return content
+
+#+end_src
+
+** Transform Companies
+The sames thing about custom fields as for leads
+
+#+begin_src jupyter-python :session localhost :kernel python3 :tangle transform.py
+class Tcompanies(Base):
+    truename = "companies"
+
+    def __init__(self, dict_):
+        self.id_ = dict_["id"]
+        self.name = dict_["name"]
+        self.responsible_user_id = dict_["responsible_user_id"]
+        self.group_id = dict_["group_id"]
+        self.created_by = dict_["created_by"]
+        self.updated_by = dict_["updated_by"]
+        self.created_at = dict_["created_at"]
+        self.updated_at = dict_["updated_at"]
+        self.closed_at = dict_["closed_at"]
+        self.closest_task_at = dict_["closest_task_at"]
+        self.is_deleted = dict_["is_deleted"]
+        self.score = dict_["score"]
+        self.account_id = dict_["account_id"]
+        self.custom_fields_values = dict_["custom_fields_values"]
+
+
+    def is_english(self, s):
+        try:
+            s.encode(encoding='utf-8').decode('ascii')
+        except UnicodeDecodeError:
+            return False
+        else:
+            return True
+
+
+    def to_dict(self):
+        content = self.__dict__
+        if content["custom_fields_values"] is not None:
+            for cf in content["custom_fields_values"]:
+                field_name = ''.join(
+                    c for c in to_latin(cf["field_name"], lang_code='ru')
+                    if c.isalpha() or c.isdigit()
+                ).lower()
+                while field_name in content.keys():
+                    field_name += "1"
+                if not field_name[0].isalpha(): # Check if name starts with chr
+                    field_name = "alpha" + field_name
+                field_value = ",".join(str(v["value"]) for v in cf["values"])
+                if self.is_english(field_name):
+                    content[field_name] = field_value
+            content.pop("custom_fields_values")
+            return content
+        return content
+
+#+end_src
+
 ** Transform Statuses
 As we remember Statuses are sub-type of the events, so we'll first define Events class, and inherit from it.
 
@@ -742,7 +886,7 @@ class Load:
 
 #+end_src
 
-For leads we need something more advanced, because there are custom fields which are different for each entity.
+For leads, contacts, and companies we need something more advanced, because there are custom fields which are different for each entity.
 So, we'll need to update table schema in case there are some column that is not present.
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle load.py
@@ -866,6 +1010,154 @@ logger.add(
 )
 
 method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
+
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo21, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+        pass
+
+    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
+** Contacts ETL
+*** Yastaff
+
+#+begin_src jupyter-python :session localhost :kernel amo20 :tangle yastaff_etl_contacts.py
+import json
+from extract import Extract
+from amo.entities import Contacts
+from setup import amo20
+from transform import Tcontacts, Transform
+from load import LoadWithSchemaUpdate
+from loguru import logger
+
+
+AMO = 'yastaff'
+ENTITY = Tcontacts
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
+method = Contacts(AMO)#.created_at(from_="2022-12-15") #TODO
+
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo20, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+
+    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
+*** Orps
+#+begin_src jupyter-python :session localhost :kernel amo20 :tangle orps_etl_contacts.py
+import json
+from extract import Extract
+from amo.entities import Contacts
+from setup import amo21
+from transform import Tcontacts, Transform
+from load import LoadWithSchemaUpdate
+from loguru import logger
+
+AMO = 'orps'
+ENTITY = Tcontacts
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
+method = Contacts(AMO)#.created_at(from_="2022-12-15") #TODO
+
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo21, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+        pass
+
+    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
+** Companies ETL
+*** Yastaff
+
+#+begin_src jupyter-python :session localhost :kernel amo20 :tangle yastaff_etl_companies.py
+import json
+from extract import Extract
+from amo.entities import Companies
+from setup import amo20
+from transform import Tcompanies, Transform
+from load import LoadWithSchemaUpdate
+from loguru import logger
+
+
+AMO = 'yastaff'
+ENTITY = Tcompanies
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
+method = Companies(AMO)#.created_at(from_="2022-12-15") #TODO
+
+if __name__ == "__main__":
+    logger.info(f"starting etl: {ENTITY.truename}")
+    extract = Extract(amo20, method)
+    extract._all()
+
+    transform = Transform(AMO, ENTITY)
+    if transform._all():
+        transform.cleanup()
+
+    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+    load.backup()
+    if load.in_batches():
+        load.cleanup()
+#+end_src
+
+*** Orps
+#+begin_src jupyter-python :session localhost :kernel amo20 :tangle orps_etl_companies.py
+import json
+from extract import Extract
+from amo.entities import Companies
+from setup import amo21
+from transform import Tcompanies, Transform
+from load import LoadWithSchemaUpdate
+from loguru import logger
+
+AMO = 'orps'
+ENTITY = Tcompanies
+
+logger.add(
+    f'logs/{AMO}_{ENTITY.truename}.log', backtrace=True,
+    diagnose=True, level='DEBUG'
+)
+
+method = Companies(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
     logger.info(f"starting etl: {ENTITY.truename}")

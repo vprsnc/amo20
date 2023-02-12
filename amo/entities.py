@@ -44,6 +44,32 @@ class Leads(Base):
     def filter(self):
         pass
 
+class Contacts(Base):
+    truename = "contacts"
+    basename = "contacts"
+    entity = "contacts"
+
+
+    def __init__(self, subdomain):
+        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity + "?"
+
+
+    def filter(self):
+        pass
+
+class Companies(Base):
+    truename = "companies"
+    basename = "companies"
+    entity = "companies"
+
+
+    def __init__(self, subdomain):
+        self.url = f"https://{subdomain}.amocrm.ru/api/v4/" + self.entity + "?"
+
+
+    def filter(self):
+        pass
+
 class  Events(Base):
     entity = "events"
     truename = "statuses"
