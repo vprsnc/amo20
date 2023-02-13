@@ -819,7 +819,7 @@ First, we create base load class for all the entities:
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle load.py
 import os
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import pandas as pd
 from google.cloud import bigquery as bq
 from google.api_core.exceptions import BadRequest

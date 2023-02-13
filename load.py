@@ -1,5 +1,5 @@
 import os
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import pandas as pd
 from google.cloud import bigquery as bq
 from google.api_core.exceptions import BadRequest
