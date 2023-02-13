@@ -18,15 +18,18 @@ method = Pipelines(AMO)  # .created_at(from_=)
 
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
 
-    transform = TransformPipelines(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = TransformPipelines(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)

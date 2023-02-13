@@ -17,16 +17,18 @@ logger.add(
 method = Contacts(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
-        pass
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)

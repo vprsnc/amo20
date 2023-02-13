@@ -22,18 +22,21 @@ logger.add(
 method = Statuses(AMO).created_at(LAST_DATE)
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
     
-    with open("orps_lastdate_statuses.txt", "w") as f: # TODO read lastdate
-        f.write(str(datetime.now()))
+        with open("orps_lastdate_statuses.txt", "w") as f: # TODO read lastdate
+            f.write(str(datetime.now()))
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    # load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)

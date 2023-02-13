@@ -977,18 +977,21 @@ logger.add(
 method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo20, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 *** Orps
@@ -1012,19 +1015,21 @@ logger.add(
 method = Leads(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
-        pass
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 ** Contacts ETL
@@ -1051,18 +1056,21 @@ logger.add(
 method = Contacts(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo20, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 *** Orps
@@ -1086,19 +1094,21 @@ logger.add(
 method = Contacts(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
-        pass
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 ** Companies ETL
@@ -1125,18 +1135,21 @@ logger.add(
 method = Companies(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo20, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 *** Orps
@@ -1160,19 +1173,21 @@ logger.add(
 method = Companies(AMO)#.created_at(from_="2022-12-15") #TODO
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
-        pass
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = LoadWithSchemaUpdate(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 ** Calls ETL
@@ -1201,18 +1216,21 @@ logger.add(
 method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = ExtractCalls(amo20, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = ExtractCalls(amo20, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+            load = Load(AMO, ENTITY.truename)
+            load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 *** Orps
@@ -1236,18 +1254,21 @@ logger.add(
 method = Calls(AMO)#.created_at(from_="2022-12-15")
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = ExtractCalls(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = ExtractCalls(amo21, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 ** Statuses ETL
@@ -1280,21 +1301,23 @@ logger.add(
 method = Statuses(AMO).created_at(from_=LAST_DATE)
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo20, method)
+        extract._all()
 
-    with open("yastaff_lastdate_statuses.txt", "w") as f:
-        f.write(str(datetime.now()))
+        with open("yastaff_lastdate_statuses.txt", "w") as f:
+            f.write(str(datetime.now()))
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+            transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    # load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 
 #+end_src
 
@@ -1325,21 +1348,24 @@ logger.add(
 method = Statuses(AMO).created_at(LAST_DATE)
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
     
-    with open("orps_lastdate_statuses.txt", "w") as f: # TODO read lastdate
-        f.write(str(datetime.now()))
+        with open("orps_lastdate_statuses.txt", "w") as f: # TODO read lastdate
+            f.write(str(datetime.now()))
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    # load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 
 #+end_src
 
@@ -1366,18 +1392,21 @@ logger.add(
 method = Users(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo20, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 *** Orps
@@ -1402,18 +1431,21 @@ logger.add(
 method = Users(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
 
-    transform = Transform(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = Transform(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 ** Pipelines ETL
@@ -1439,18 +1471,21 @@ logger.add(
 method = Pipelines(AMO)  # .created_at(from_=)
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo20, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo20, method)
+        extract._all()
 
-    transform = TransformPipelines(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = TransformPipelines(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 *** Orps
@@ -1475,18 +1510,21 @@ method = Pipelines(AMO)  # .created_at(from_=)
 
 
 if __name__ == "__main__":
-    logger.info(f"starting etl: {ENTITY.truename}")
-    extract = Extract(amo21, method)
-    extract._all()
+    try:
+        logger.info(f"starting etl: {ENTITY.truename}")
+        extract = Extract(amo21, method)
+        extract._all()
 
-    transform = TransformPipelines(AMO, ENTITY)
-    if transform._all():
-        transform.cleanup()
+        transform = TransformPipelines(AMO, ENTITY)
+        if transform._all():
+            transform.cleanup()
 
-    load = Load(AMO, ENTITY.truename)
-    load.backup()
-    if load.in_batches():
-        load.cleanup()
+        load = Load(AMO, ENTITY.truename)
+        load.backup()
+        if load.in_batches():
+            load.cleanup()
+    except Exception as e:
+        logger.critical(e)
 #+end_src
 
 * Shell to rule them all
