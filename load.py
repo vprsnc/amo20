@@ -34,7 +34,10 @@ class Load:
         )
         logger.success("Table successfully backed up!")
         self.client.delete_table(self.table_ref)
-        self.client.delete_table(self.table_backup_old)
+        try:
+            self.client.delete_table(self.table_backup_old)
+        except:
+            pass
         self.client.create_table(self.table_ref)
 
 
