@@ -964,6 +964,7 @@ Finally we have everything ready, so we can write our ETL's script which will co
 *** Yastaff
 
 #+begin_src jupyter-python :session localhost :kernel amo20 :tangle yastaff_etl_leads.py
+import subprocess
 import json
 from extract import Extract
 from amo.entities import Leads
@@ -998,11 +999,13 @@ if __name__ == "__main__":
         if load.in_batches():
             load.cleanup()
     except Exception as e:
+        subprocess.Popen(f"echo '{e}' | msmtp analytics@oddjob.ru georgy@analytics-abc.xyz")
         logger.critical(e)
 #+end_src
 
 *** Orps
 #+begin_src jupyter-python :session localhost :kernel amo20 :tangle orps_etl_leads.py
+import subprocess
 import json
 from extract import Extract
 from amo.entities import Leads
@@ -1036,6 +1039,7 @@ if __name__ == "__main__":
         if load.in_batches():
             load.cleanup()
     except Exception as e:
+        subprocess.Popen(f"echo '{e}' | msmtp analytics@oddjob.ru georgy@analytics-abc.xyz")
         logger.critical(e)
 #+end_src
 
@@ -1282,6 +1286,7 @@ if __name__ == "__main__":
 *** Yastaff
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle yastaff_etl_statuses.py
+import subprocess
 import json
 from dateutil import parser
 from datetime import datetime
@@ -1324,6 +1329,7 @@ if __name__ == "__main__":
         if load.in_batches():
             load.cleanup()
     except Exception as e:
+        subprocess.Popen(f"echo '{e}' | msmtp analytics@oddjob.ru georgy@analytics-abc.xyz")
         logger.critical(e)
 
 #+end_src
@@ -1331,6 +1337,7 @@ if __name__ == "__main__":
 *** Orps
 
 #+begin_src jupyter-python :session localhost :kernel python3 :tangle orps_etl_statuses.py
+import subprocess
 import json
 from datetime import datetime #TODO
 from extract import Extract
@@ -1372,6 +1379,7 @@ if __name__ == "__main__":
         if load.in_batches():
             load.cleanup()
     except Exception as e:
+        subprocess.Popen(f"echo '{e}' | msmtp analytics@oddjob.ru georgy@analytics-abc.xyz")
         logger.critical(e)
 
 #+end_src

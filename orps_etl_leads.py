@@ -1,3 +1,4 @@
+import subprocess
 import json
 from extract import Extract
 from amo.entities import Leads
@@ -31,4 +32,5 @@ if __name__ == "__main__":
         if load.in_batches():
             load.cleanup()
     except Exception as e:
+        subprocess.Popen(f"echo '{e}' | msmtp analytics@oddjob.ru georgy@analytics-abc.xyz")
         logger.critical(e)

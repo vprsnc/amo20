@@ -1,3 +1,4 @@
+import subprocess
 import json
 from datetime import datetime #TODO
 from extract import Extract
@@ -39,4 +40,5 @@ if __name__ == "__main__":
         if load.in_batches():
             load.cleanup()
     except Exception as e:
+        subprocess.Popen(f"echo '{e}' | msmtp analytics@oddjob.ru georgy@analytics-abc.xyz")
         logger.critical(e)
