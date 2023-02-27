@@ -576,10 +576,8 @@ class Tcontacts(Base):
         self.updated_by = dict_["updated_by"]
         self.created_at = dict_["created_at"]
         self.updated_at = dict_["updated_at"]
-        # self.closed_at = dict_["closed_at"]
         self.closest_task_at = dict_["closest_task_at"]
         self.is_deleted = dict_["is_deleted"]
-        self.score = dict_["score"]
         self.account_id = dict_["account_id"]
         self.custom_fields_values = dict_["custom_fields_values"]
 
@@ -630,10 +628,8 @@ class Tcompanies(Base):
         self.updated_by = dict_["updated_by"]
         self.created_at = dict_["created_at"]
         self.updated_at = dict_["updated_at"]
-        # self.closed_at = dict_["closed_at"]
         self.closest_task_at = dict_["closest_task_at"]
         self.is_deleted = dict_["is_deleted"]
-        self.score = dict_["score"]
         self.account_id = dict_["account_id"]
         self.custom_fields_values = dict_["custom_fields_values"]
 
